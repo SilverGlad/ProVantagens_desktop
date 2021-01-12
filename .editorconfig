@@ -1,0 +1,10 @@
+﻿[*.{cs,vb}]
+
+# IDE0049: Simplificar Nomes
+dotnet_style_predefined_type_for_locals_parameters_members = false:silent
+
+# IDE0049: Simplificar Nomes
+dotnet_diagnostic.IDE0049.severity = silent
+
+# Default severity for analyzer diagnostics with category 'Style'
+dotnet_analyzer_diagnostic.category-Style.severity = silent
