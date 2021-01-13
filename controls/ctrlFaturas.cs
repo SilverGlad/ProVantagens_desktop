@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Firestore;
+using ProVantagensApp.forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace ProVantagensApp
 {
     public partial class ctrlFaturas : UserControl
     {
-        public String invoiceID;
+        public String userID, invoiceID;
         public ctrlFaturas()
         {
             InitializeComponent();
@@ -70,49 +71,49 @@ namespace ProVantagensApp
                             {
                                 if (documentSnapshot.Exists)
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                         if (cboSearch.Text == "Data da fatura")
                             {
                                 if (documentSnapshot.Id.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Nome")
                             {
                                 if (invoices.holder.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Plano")
                             {
                                 if (invoices.planName.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Vencimento")
                             {
                                 if (invoices.dueDate.ToString() == txtSearch.Text)
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Método de pagamento")
                             {
                                 if (invoices.paymentMethod.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Valor total")
                             {
                                 if (invoices.totalValue.ToString().Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                         }
@@ -126,49 +127,49 @@ namespace ProVantagensApp
                             {
                                 if (documentSnapshot.Exists)
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                         if (cboSearch.Text == "Data da fatura")
                             {
                                 if (documentSnapshot.Id.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Nome")
                             {
                                 if (invoices.holder.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Plano")
                             {
                                 if (invoices.planName.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Vencimento")
                             {
                                 if (invoices.dueDate.ToString() == txtSearch.Text)
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Método de pagamento")
                             {
                                 if (invoices.paymentMethod.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Valor total")
                             {
                                 if (invoices.totalValue.ToString().Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                         }
@@ -181,49 +182,49 @@ namespace ProVantagensApp
                             {
                                 if (documentSnapshot.Exists)
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                         if (cboSearch.Text == "Data da fatura")
                             {
                                 if (documentSnapshot.Id.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Nome")
                             {
                                 if (invoices.holder.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Plano")
                             {
                                 if (invoices.planName.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Vencimento")
                             {
                                 if (invoices.dueDate.ToString() == txtSearch.Text)
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Método de pagamento")
                             {
                                 if (invoices.paymentMethod.Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                             if (cboSearch.Text == "Valor total")
                             {
                                 if (invoices.totalValue.ToString().Contains(txtSearch.Text))
                                 {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                                 }
                             }
                         }
@@ -234,49 +235,49 @@ namespace ProVantagensApp
                         {
                             if (documentSnapshot.Exists)
                             {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                             }
                         }
                         if (cboSearch.Text == "Data da fatura")
                         {
                             if (documentSnapshot.Id.Contains(txtSearch.Text))
                             {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                             }
                         }
                         if (cboSearch.Text == "Nome")
                         {
                             if (invoices.holder.Contains(txtSearch.Text))
                             {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                             }
                         }
                         if (cboSearch.Text == "Plano")
                         {
                             if (invoices.planName.Contains(txtSearch.Text))
                             {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                             }
                         }
                         if (cboSearch.Text == "Vencimento")
                         {
                             if (invoices.dueDate.ToString() == txtSearch.Text)
                             {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                             }
                         }
                         if (cboSearch.Text == "Método de pagamento")
                         {
                             if (invoices.paymentMethod.Contains(txtSearch.Text))
                             {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                             }
                         }
                         if (cboSearch.Text == "Valor total")
                         {
                             if (invoices.totalValue.ToString().Contains(txtSearch.Text))
                             {
-                                    dataGrid.Rows.Add(documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
+                                    dataGrid.Rows.Add(userDocument.Id, documentSnapshot.Id, invoices.holder, invoices.status, invoices.planName, invoices.paymentMethod, invoices.dueDate, invoices.totalValue);
                             }
                         }
                     }
@@ -288,7 +289,8 @@ namespace ProVantagensApp
 
 
 
-            invoiceID = dataGrid.Rows[0].Cells[0].Value.ToString();
+            userID = dataGrid.Rows[0].Cells[0].Value.ToString();
+            invoiceID = dataGrid.Rows[0].Cells[1].Value.ToString();
 
         }
         private async void removerToolStripMenuItem_Click(Object sender, EventArgs e)
@@ -299,7 +301,7 @@ namespace ProVantagensApp
                 Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
 
                 FirestoreDb db = FirestoreDb.Create("pro-vantagens");
-                DocumentReference documentReference = db.Collection("benefits").Document(invoiceID);
+                DocumentReference documentReference = db.Collection("users").Document(userID).Collection("invoices").Document(invoiceID);
 
                 await documentReference.DeleteAsync();
                 try
@@ -317,7 +319,8 @@ namespace ProVantagensApp
         }
         private void dataGrid_CellClick(Object sender, DataGridViewCellEventArgs e)
         {
-            invoiceID = dataGrid.CurrentRow.Cells[0].Value.ToString();
+            userID = dataGrid.CurrentRow.Cells[0].Value.ToString();
+            invoiceID = dataGrid.CurrentRow.Cells[1].Value.ToString();
         }
 
         private async void editarToolStripMenuItem_Click(Object sender, EventArgs e)
@@ -328,7 +331,7 @@ namespace ProVantagensApp
             }
             else
             {
-                frmContractPlan frm = new frmContractPlan();
+                frmEditInvoice frm = new frmEditInvoice(userID, invoiceID);
                 frm.ShowDialog();
                 try
                 {
@@ -341,19 +344,6 @@ namespace ProVantagensApp
 
         }
 
-        private async void adicionarToolStripMenuItem_Click(Object sender, EventArgs e)
-        {
-            MessageBox.Show("Criar cliente");
-            frmAddClient frm = new frmAddClient();
-            frm.ShowDialog();
-            try
-            {
-                await loadInvoicesAsync();
-            }
-            catch
-            {
-            }
-        }
 
         private async void btnSearch_Click(Object sender, EventArgs e)
         {

@@ -43,6 +43,7 @@ namespace ProVantagensApp
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.pnTop = new System.Windows.Forms.Panel();
             this.btnVencidos = new System.Windows.Forms.RadioButton();
+            this.idusuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,10 +69,10 @@ namespace ProVantagensApp
             this.menuTab.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.removerToolStripMenuItem,
             this.editarToolStripMenuItem});
-            this.menuTab.Location = new System.Drawing.Point(0, 0);
+            this.menuTab.Location = new System.Drawing.Point(8, 0);
             this.menuTab.Name = "menuTab";
             this.menuTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTab.Size = new System.Drawing.Size(682, 24);
+            this.menuTab.Size = new System.Drawing.Size(666, 24);
             this.menuTab.TabIndex = 12;
             this.menuTab.Text = "menuStrip1";
             // 
@@ -167,6 +168,7 @@ namespace ProVantagensApp
             this.dataGrid.BackgroundColor = System.Drawing.Color.White;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idusuario,
             this.idPlan,
             this.namePlan,
             this.status,
@@ -175,17 +177,18 @@ namespace ProVantagensApp
             this.dueData,
             this.valuePlan});
             this.dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGrid.Location = new System.Drawing.Point(0, 75);
+            this.dataGrid.Location = new System.Drawing.Point(8, 75);
             this.dataGrid.Margin = new System.Windows.Forms.Padding(16);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(682, 570);
+            this.dataGrid.Size = new System.Drawing.Size(666, 562);
             this.dataGrid.TabIndex = 10;
             // 
             // pnTop
             // 
+            this.pnTop.BackColor = System.Drawing.Color.Transparent;
             this.pnTop.Controls.Add(this.btnAll);
             this.pnTop.Controls.Add(this.btnVencidos);
             this.pnTop.Controls.Add(this.btnPagos);
@@ -196,9 +199,9 @@ namespace ProVantagensApp
             this.pnTop.Controls.Add(this.lbSearch);
             this.pnTop.Controls.Add(this.txtSearch);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTop.Location = new System.Drawing.Point(0, 24);
+            this.pnTop.Location = new System.Drawing.Point(8, 24);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(682, 51);
+            this.pnTop.Size = new System.Drawing.Size(666, 51);
             this.pnTop.TabIndex = 11;
             // 
             // btnVencidos
@@ -211,6 +214,12 @@ namespace ProVantagensApp
             this.btnVencidos.Text = "Apenas vencidos";
             this.btnVencidos.UseVisualStyleBackColor = true;
             this.btnVencidos.CheckedChanged += new System.EventHandler(this.btnVencidos_CheckedChanged);
+            // 
+            // idusuario
+            // 
+            this.idusuario.HeaderText = "ID usuário";
+            this.idusuario.Name = "idusuario";
+            this.idusuario.ReadOnly = true;
             // 
             // idPlan
             // 
@@ -264,10 +273,12 @@ namespace ProVantagensApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.pnTop);
             this.Controls.Add(this.menuTab);
             this.Name = "ctrlFaturas";
+            this.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
             this.Size = new System.Drawing.Size(682, 645);
             this.Load += new System.EventHandler(this.ctrlFaturas_Load);
             this.menuTab.ResumeLayout(false);
@@ -295,6 +306,7 @@ namespace ProVantagensApp
         private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.Panel pnTop;
         private System.Windows.Forms.RadioButton btnVencidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idusuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn namePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;

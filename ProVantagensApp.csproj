@@ -90,6 +90,18 @@
     <Compile Include="controls\ctrlRelatorios.Designer.cs">
       <DependentUpon>ctrlRelatorios.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmEditInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmEditInvoice.Designer.cs">
+      <DependentUpon>frmEditInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmFinalizeClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmFinalizeClient.Designer.cs">
+      <DependentUpon>frmFinalizeClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="models\Address.cs" />
     <Compile Include="models\Benefits.cs" />
     <Compile Include="models\Clients.cs" />
@@ -256,11 +268,17 @@
     <EmbeddedResource Include="forms\frmEditBenefit.resx">
       <DependentUpon>frmEditBenefit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmEditInvoice.resx">
+      <DependentUpon>frmEditInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmEditPartner.resx">
       <DependentUpon>frmEditPartner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmEditPlan.resx">
       <DependentUpon>frmEditPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmFinalizeClient.resx">
+      <DependentUpon>frmFinalizeClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FrmGeral.resx">
       <DependentUpon>FrmGeral.cs</DependentUpon>

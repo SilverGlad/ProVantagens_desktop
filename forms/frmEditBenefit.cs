@@ -17,7 +17,7 @@ namespace ProVantagensApp
     public partial class frmEditBenefit : Form
     {
         private String benefitID;
-        private Benefits benefits;
+        private Benefits benefits = new Benefits();
         private int _width;
         string checkboxes = "";
         private bool check;

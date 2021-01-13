@@ -332,10 +332,6 @@ namespace ProVantagensApp.controls
                 }
             }
 
-            MessageBox.Show("Ativos:" + clientsOn.ToString());
-            MessageBox.Show("Inativos:" + clientsTotal.ToString());
-            MessageBox.Show("Old:" + janOld.ToString());
-
             //Grafico ano anterior
             this.graficPaymentsOld.Palette = ChartColorPalette.SeaGreen;
             graficPaymentsOld.Series.Clear();

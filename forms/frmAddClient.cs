@@ -188,7 +188,34 @@ namespace ProVantagensApp
 
 
         }
-        private async void btnSalvar_Click(Object sender, EventArgs e)
+
+        private void btnSaveContract_Click(Object sender, EventArgs e)
+        {
+            if (txtName.Text == "" || txtNumber.Text == "" || txtDistrict.Text == "" || cboCity.Text == "" || cboState.Text == "" || txtStreet.Text == "" || txtPhone1.Text == "")
+            {
+                MessageBox.Show("Erro! Verifique se preencheu todos os campos");
+            }
+            else
+            {
+                btnSaveContract.Enabled = false;
+                try
+                {
+                    setData();
+                    MessageBox.Show("Dados salvos com sucesso!");
+                    frmContractPlan frm = new frmContractPlan(clientID);
+                    this.Close();
+                    frm.Show();
+
+                }
+                catch
+                {
+                    MessageBox.Show("Ocorreu um erro ao tentar salvar os dados.");
+                    btnSaveContract.Enabled = true;
+                }
+            }
+
+            }
+            private async void btnSalvar_Click(Object sender, EventArgs e)
         {
             if (txtName.Text == "" || txtNumber.Text == "" || txtDistrict.Text == "" || cboCity.Text == "" || cboState.Text == "" || txtStreet.Text == "" || txtPhone1.Text == "")
             {
@@ -5936,8 +5963,6 @@ namespace ProVantagensApp
             "Wanderlândia",
             "Xambioá",
         };
-
-
 
 
     }

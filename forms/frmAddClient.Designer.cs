@@ -80,7 +80,7 @@ namespace ProVantagensApp
             this.btnBuscaCEP = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveContract = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.cboNvAcesso = new System.Windows.Forms.ComboBox();
@@ -604,7 +604,7 @@ namespace ProVantagensApp
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnCancelar);
-            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.btnSaveContract);
             this.groupBox4.Controls.Add(this.btnSalvar);
             this.groupBox4.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(12, 650);
@@ -625,15 +625,16 @@ namespace ProVantagensApp
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button1
+            // btnSaveContract
             // 
-            this.button1.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(165, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 34);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Salvar e contratar plano";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSaveContract.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveContract.Location = new System.Drawing.Point(165, 40);
+            this.btnSaveContract.Name = "btnSaveContract";
+            this.btnSaveContract.Size = new System.Drawing.Size(151, 34);
+            this.btnSaveContract.TabIndex = 29;
+            this.btnSaveContract.Text = "Salvar e contratar plano";
+            this.btnSaveContract.UseVisualStyleBackColor = true;
+            this.btnSaveContract.Click += new System.EventHandler(this.btnSaveContract_Click);
             // 
             // btnSalvar
             // 
@@ -677,7 +678,7 @@ namespace ProVantagensApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(545, 639);
+            this.ClientSize = new System.Drawing.Size(562, 639);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnBuscaCEP);
             this.Controls.Add(this.txtCEP);
@@ -752,7 +753,7 @@ namespace ProVantagensApp
         private System.Windows.Forms.TextBox txtNomeMae;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveContract;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox cboNvAcesso;

@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Firestore;
+using ProVantagensApp.forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,15 @@ namespace ProVantagensApp
 {
     public partial class frmContractPlan : Form
     {
+        string userID;
         int groupNum = 1;
         int i;
-        public frmContractPlan()
+        private DocumentReference documentReference;
+
+        public frmContractPlan(string userID)
         {
             InitializeComponent();
+            this.userID = userID;
         }
 
         private async void frmContractPlan_Load(Object sender, EventArgs e)
@@ -106,18 +111,59 @@ namespace ProVantagensApp
                 txtValue.Location = new Point(494, 16);
 
                 box.Controls.Add(buttonNext);
-                buttonNext.Name = "txtValue" + groupNum.ToString();
+                buttonNext.Name = plansSnapshot.Id;
                 buttonNext.Text = "Avançar";
                 buttonNext.Font = new Font("Lucida Sans Unicode", 10, FontStyle.Regular);
                 buttonNext.Location = new Point(498, 166);
                 buttonNext.Size = new Size(75,30);
+                buttonNext.Click += delegate(object send, EventArgs ex)
+                {
+                    callContract(send, ex, plansSnapshot.Id, plans.type, plans.name, plans.value);
+                };
 
                 i = i + 208;
+                groupNum = groupNum + 1;
 
             }
 
 
 
+
+        }
+
+        private async void savePlan(string planName, string planValue)
+        {
+
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"pro-vantagens-firebase-adminsdk-5cf5q-82ec44750b.json";
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
+            FirestoreDb db = FirestoreDb.Create("pro-vantagens");
+            documentReference = db.Collection("users").Document(userID);
+
+
+            Dictionary<string, object> data = new Dictionary<string, object>()
+            {
+                {"plan", planName},
+                {"planvalue", planValue},
+            };
+
+            await documentReference.UpdateAsync(data);
+            this.Close();
+            frmFinalizeClient frm = new frmFinalizeClient();
+            frm.Show();
+
+        }
+
+        private void callContract(Object sender, EventArgs e, string planID, string planType, string planName, string planValue)
+        {
+            Button button = (Button)sender;
+            try
+            {
+                savePlan(planName, planValue);
+            }
+            catch
+            {
+                MessageBox.Show("Erro ao selecionar e salvar plano");
+            }
         }
     }
 }
