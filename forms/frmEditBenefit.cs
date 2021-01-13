@@ -210,8 +210,16 @@ namespace ProVantagensApp
 
         private void txt_valor_Leave(object sender, EventArgs e)
         {
-            valor = txtValue.Text.Replace("R$", "");
-            txtValue.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            try
+            {
+                valor = txtValue.Text.Replace("R$", "");
+                txtValue.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            }
+            catch
+            {
+
+            }
+
         }
 
         private void txt_valor_KeyUp(object sender, KeyEventArgs e)

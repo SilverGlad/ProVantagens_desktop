@@ -72,6 +72,8 @@ namespace ProVantagensApp
             this.btnBuscaCEP = new System.Windows.Forms.Button();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnTelefone = new System.Windows.Forms.RadioButton();
+            this.btnCelular = new System.Windows.Forms.RadioButton();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -254,6 +256,8 @@ namespace ProVantagensApp
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnCelular);
+            this.groupBox2.Controls.Add(this.btnTelefone);
             this.groupBox2.Controls.Add(this.txtPhone);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
@@ -263,7 +267,7 @@ namespace ProVantagensApp
             this.groupBox2.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(41, 327);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 101);
+            this.groupBox2.Size = new System.Drawing.Size(422, 115);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados pessoais";
@@ -274,7 +278,6 @@ namespace ProVantagensApp
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(151, 24);
             this.txtPhone.TabIndex = 5;
-            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // label1
             // 
@@ -298,6 +301,7 @@ namespace ProVantagensApp
             // 
             // cboType
             // 
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboType.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboType.FormattingEnabled = true;
             this.cboType.Location = new System.Drawing.Point(52, 53);
@@ -325,6 +329,7 @@ namespace ProVantagensApp
             // 
             // cboCity
             // 
+            this.cboCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCity.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCity.FormattingEnabled = true;
             this.cboCity.Location = new System.Drawing.Point(285, 37);
@@ -373,6 +378,7 @@ namespace ProVantagensApp
             // 
             // cboState
             // 
+            this.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboState.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboState.FormattingEnabled = true;
             this.cboState.Location = new System.Drawing.Point(53, 37);
@@ -454,9 +460,9 @@ namespace ProVantagensApp
             // imgPartner
             // 
             this.imgPartner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgPartner.Location = new System.Drawing.Point(114, 12);
+            this.imgPartner.Location = new System.Drawing.Point(41, 12);
             this.imgPartner.Name = "imgPartner";
-            this.imgPartner.Size = new System.Drawing.Size(280, 280);
+            this.imgPartner.Size = new System.Drawing.Size(422, 280);
             this.imgPartner.TabIndex = 10;
             this.imgPartner.TabStop = false;
             // 
@@ -521,6 +527,30 @@ namespace ProVantagensApp
             this.label11.Size = new System.Drawing.Size(27, 15);
             this.label11.TabIndex = 26;
             this.label11.Text = "CEP";
+            // 
+            // btnTelefone
+            // 
+            this.btnTelefone.AutoSize = true;
+            this.btnTelefone.Location = new System.Drawing.Point(265, 83);
+            this.btnTelefone.Name = "btnTelefone";
+            this.btnTelefone.Size = new System.Drawing.Size(71, 19);
+            this.btnTelefone.TabIndex = 6;
+            this.btnTelefone.TabStop = true;
+            this.btnTelefone.Text = "Telefone";
+            this.btnTelefone.UseVisualStyleBackColor = true;
+            this.btnTelefone.CheckedChanged += new System.EventHandler(this.btnTelefone_CheckedChanged);
+            // 
+            // btnCelular
+            // 
+            this.btnCelular.AutoSize = true;
+            this.btnCelular.Location = new System.Drawing.Point(345, 83);
+            this.btnCelular.Name = "btnCelular";
+            this.btnCelular.Size = new System.Drawing.Size(63, 19);
+            this.btnCelular.TabIndex = 6;
+            this.btnCelular.TabStop = true;
+            this.btnCelular.Text = "Celular";
+            this.btnCelular.UseVisualStyleBackColor = true;
+            this.btnCelular.CheckedChanged += new System.EventHandler(this.btnCelular_CheckedChanged);
             // 
             // frmEditPartner
             // 
@@ -602,5 +632,7 @@ namespace ProVantagensApp
         private System.Windows.Forms.Button btnBuscaCEP;
         private System.Windows.Forms.MaskedTextBox txtCEP;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RadioButton btnCelular;
+        private System.Windows.Forms.RadioButton btnTelefone;
     }
 }

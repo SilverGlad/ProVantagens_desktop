@@ -16,7 +16,7 @@ namespace ProVantagensApp
     public partial class frmAddPlan : Form
     {
         private String planID;
-        private Plans plans;
+        private Plans plans = new Plans();
         private int _width;
         string checkboxes = "";
         private bool check;
@@ -28,19 +28,26 @@ namespace ProVantagensApp
             InitializeComponent();
         }
 
-        private void imgPlans_Click(Object sender, EventArgs e)
+        private string alfanumericoAleatorio(int tamanho)
         {
-
+            var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            planID = new String(
+                Enumerable.Repeat(chars, tamanho)
+                          .Select(s => s[random.Next(s.Length)])
+                          .ToArray());
+            return planID;
         }
-
         private async void frmAddPlan_Load(Object sender, EventArgs e)
         {
+            alfanumericoAleatorio(20);
             _width = this.Width;
 
             string path = AppDomain.CurrentDomain.BaseDirectory + @"pro-vantagens-firebase-adminsdk-5cf5q-82ec44750b.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
 
             FirestoreDb db = FirestoreDb.Create("pro-vantagens");
+            documentReference = db.Collection("plans").Document(planID);
 
         }
 
@@ -58,10 +65,8 @@ namespace ProVantagensApp
                 {"contract", plans.contract}
             };
 
-            if (documentSnapshot.Exists)
-            {
                 await documentReference.SetAsync(data);
-            }
+            
         }
 
 
@@ -74,6 +79,7 @@ namespace ProVantagensApp
             {
                 // display image in picture box  
                 imgPlans.Image = new Bitmap(open.FileName);
+                imgPlans.SizeMode = PictureBoxSizeMode.StretchImage;
                 // image file path  
                 imgFile = open.FileName;
             }
@@ -138,8 +144,6 @@ namespace ProVantagensApp
                     await UploadPDFAsync();
                 }
                 setData();
-                ctrlPlans ctrl = new ctrlPlans();
-                await ctrl.loadPlansAsync();
                 MessageBox.Show("Dados atualizados com sucesso!");
 
             }
@@ -182,8 +186,15 @@ namespace ProVantagensApp
 
         private void txt_valor_Leave(object sender, EventArgs e)
         {
-            valor = txtValue.Text.Replace("R$", "");
-            txtValue.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            try
+            {
+                valor = txtValue.Text.Replace("R$", "");
+                txtValue.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            }
+            catch
+            {
+
+            }
         }
 
         private void txt_valor_KeyUp(object sender, KeyEventArgs e)
@@ -225,7 +236,7 @@ namespace ProVantagensApp
         {
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "Text files | *.txt";
+            open.Filter = "Pdf Files|*.pdf";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 // display image in picture box  

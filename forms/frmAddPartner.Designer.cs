@@ -49,6 +49,8 @@ namespace ProVantagensApp
             this.label6 = new System.Windows.Forms.Label();
             this.imgPartner = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCelular = new System.Windows.Forms.RadioButton();
+            this.btnTel = new System.Windows.Forms.RadioButton();
             this.txtPhone = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -125,6 +127,7 @@ namespace ProVantagensApp
             // 
             // cboCity
             // 
+            this.cboCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCity.Enabled = false;
             this.cboCity.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCity.FormattingEnabled = true;
@@ -250,6 +253,7 @@ namespace ProVantagensApp
             // 
             // cboState
             // 
+            this.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboState.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboState.FormattingEnabled = true;
             this.cboState.Location = new System.Drawing.Point(53, 37);
@@ -271,14 +275,16 @@ namespace ProVantagensApp
             // imgPartner
             // 
             this.imgPartner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgPartner.Location = new System.Drawing.Point(106, 12);
+            this.imgPartner.Location = new System.Drawing.Point(33, 12);
             this.imgPartner.Name = "imgPartner";
-            this.imgPartner.Size = new System.Drawing.Size(280, 280);
+            this.imgPartner.Size = new System.Drawing.Size(422, 280);
             this.imgPartner.TabIndex = 18;
             this.imgPartner.TabStop = false;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnCelular);
+            this.groupBox2.Controls.Add(this.btnTel);
             this.groupBox2.Controls.Add(this.txtPhone);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
@@ -288,10 +294,34 @@ namespace ProVantagensApp
             this.groupBox2.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(33, 327);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 101);
+            this.groupBox2.Size = new System.Drawing.Size(422, 109);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados pessoais";
+            // 
+            // btnCelular
+            // 
+            this.btnCelular.AutoSize = true;
+            this.btnCelular.Location = new System.Drawing.Point(353, 84);
+            this.btnCelular.Name = "btnCelular";
+            this.btnCelular.Size = new System.Drawing.Size(63, 19);
+            this.btnCelular.TabIndex = 6;
+            this.btnCelular.TabStop = true;
+            this.btnCelular.Text = "Celular";
+            this.btnCelular.UseVisualStyleBackColor = true;
+            this.btnCelular.CheckedChanged += new System.EventHandler(this.btnCelular_CheckedChanged);
+            // 
+            // btnTel
+            // 
+            this.btnTel.AutoSize = true;
+            this.btnTel.Location = new System.Drawing.Point(265, 84);
+            this.btnTel.Name = "btnTel";
+            this.btnTel.Size = new System.Drawing.Size(71, 19);
+            this.btnTel.TabIndex = 6;
+            this.btnTel.TabStop = true;
+            this.btnTel.Text = "Telefone";
+            this.btnTel.UseVisualStyleBackColor = true;
+            this.btnTel.CheckedChanged += new System.EventHandler(this.btnTel_CheckedChanged);
             // 
             // txtPhone
             // 
@@ -299,7 +329,6 @@ namespace ProVantagensApp
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(151, 24);
             this.txtPhone.TabIndex = 5;
-            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // label1
             // 
@@ -323,6 +352,7 @@ namespace ProVantagensApp
             // 
             // cboType
             // 
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboType.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboType.FormattingEnabled = true;
             this.cboType.Items.AddRange(new object[] {
@@ -604,5 +634,7 @@ namespace ProVantagensApp
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.MaskedTextBox txtCEP;
         private System.Windows.Forms.Button btnBuscaCEP;
+        private System.Windows.Forms.RadioButton btnCelular;
+        private System.Windows.Forms.RadioButton btnTel;
     }
 }

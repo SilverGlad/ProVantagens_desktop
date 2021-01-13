@@ -20,7 +20,7 @@ namespace ProVantagensApp
         public String cardNum { get; set; }
 
         [FirestoreProperty]
-        public int cardType { get; set; }
+        public String cardType { get; set; }
 
         [FirestoreProperty]
         public String cpfHolder { get; set; }

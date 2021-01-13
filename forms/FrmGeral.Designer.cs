@@ -30,7 +30,6 @@ namespace ProVantagensApp
         private void InitializeComponent()
         {
             this.gbLogo = new System.Windows.Forms.GroupBox();
-            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lbUserName = new System.Windows.Forms.Label();
             this.pnSpace = new System.Windows.Forms.Panel();
             this.btnPlans = new System.Windows.Forms.Button();
@@ -49,12 +48,13 @@ namespace ProVantagensApp
             this.gbLogin = new System.Windows.Forms.GroupBox();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.pnPage = new System.Windows.Forms.Panel();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.gbLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.gbFinances.SuspendLayout();
             this.gbMenu.SuspendLayout();
             this.gbLogin.SuspendLayout();
             this.pnMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // gbLogo
@@ -66,16 +66,6 @@ namespace ProVantagensApp
             this.gbLogo.Size = new System.Drawing.Size(200, 127);
             this.gbLogo.TabIndex = 0;
             this.gbLogo.TabStop = false;
-            // 
-            // imgLogo
-            // 
-            this.imgLogo.Image = global::ProVantagensApp.Properties.Resources.Logo_Branco_Azul;
-            this.imgLogo.Location = new System.Drawing.Point(6, 12);
-            this.imgLogo.Name = "imgLogo";
-            this.imgLogo.Size = new System.Drawing.Size(188, 109);
-            this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgLogo.TabIndex = 0;
-            this.imgLogo.TabStop = false;
             // 
             // lbUserName
             // 
@@ -250,6 +240,7 @@ namespace ProVantagensApp
             this.btnPagamentos.Text = "Pagamentos";
             this.btnPagamentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPagamentos.UseVisualStyleBackColor = false;
+            this.btnPagamentos.Click += new System.EventHandler(this.btnPagamentos_Click);
             // 
             // btnFaturas
             // 
@@ -286,6 +277,7 @@ namespace ProVantagensApp
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // gbMenu
             // 
@@ -337,6 +329,16 @@ namespace ProVantagensApp
             this.pnPage.Size = new System.Drawing.Size(682, 645);
             this.pnPage.TabIndex = 4;
             // 
+            // imgLogo
+            // 
+            this.imgLogo.Image = global::ProVantagensApp.Properties.Resources.Logo_Branco_Azul;
+            this.imgLogo.Location = new System.Drawing.Point(6, 12);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(188, 109);
+            this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLogo.TabIndex = 0;
+            this.imgLogo.TabStop = false;
+            // 
             // FrmGeral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,7 +353,6 @@ namespace ProVantagensApp
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmGeral_FormClosed);
             this.Load += new System.EventHandler(this.FrmGeral_Load);
             this.gbLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.gbFinances.ResumeLayout(false);
             this.gbMenu.ResumeLayout(false);
             this.gbMenu.PerformLayout();
@@ -359,6 +360,7 @@ namespace ProVantagensApp
             this.gbLogin.PerformLayout();
             this.pnMenu.ResumeLayout(false);
             this.pnMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Firestore;
+using ProVantagensApp.controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -150,6 +151,40 @@ namespace ProVantagensApp
             btnPlans.ForeColor = Color.Black;
             btnDashboard.ForeColor = Color.Black;
             btnFaturas.ForeColor = Color.White;
+            btnPagamentos.ForeColor = Color.Black;
+            btnRelatorios.ForeColor = Color.Black;
+        }
+
+        private void btnPagamentos_Click(Object sender, EventArgs e)
+        {
+            ctrlPagamentos frm = new ctrlPagamentos();
+            pnPage.Controls.Clear();
+            pnPage.Controls.Add(frm);
+            frm.Show();
+            btnClients.ForeColor = Color.Black;
+            btnBeneficios.ForeColor = Color.Black;
+            btnHome.ForeColor = Color.Black;
+            btnPartners.ForeColor = Color.Black;
+            btnPlans.ForeColor = Color.Black;
+            btnDashboard.ForeColor = Color.Black;
+            btnFaturas.ForeColor = Color.Black;
+            btnPagamentos.ForeColor = Color.White;
+            btnRelatorios.ForeColor = Color.Black;
+        }
+
+        private void btnDashboard_Click(Object sender, EventArgs e)
+        {
+            ctrlDashboard frm = new ctrlDashboard();
+            pnPage.Controls.Clear();
+            pnPage.Controls.Add(frm);
+            frm.Show();
+            btnClients.ForeColor = Color.Black;
+            btnBeneficios.ForeColor = Color.Black;
+            btnHome.ForeColor = Color.Black;
+            btnPartners.ForeColor = Color.Black;
+            btnPlans.ForeColor = Color.Black;
+            btnDashboard.ForeColor = Color.White;
+            btnFaturas.ForeColor = Color.Black;
             btnPagamentos.ForeColor = Color.Black;
             btnRelatorios.ForeColor = Color.Black;
         }

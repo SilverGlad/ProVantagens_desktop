@@ -100,7 +100,7 @@ namespace ProVantagensApp
                 Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
 
                 FirestoreDb db = FirestoreDb.Create("pro-vantagens");
-                DocumentReference documentReference = db.Collection("benefits").Document(plansID);
+                DocumentReference documentReference = db.Collection("plans").Document(plansID);
 
                 await documentReference.DeleteAsync();
                 try
@@ -120,7 +120,6 @@ namespace ProVantagensApp
         private void dataGrid_CellClick(Object sender, DataGridViewCellEventArgs e)
         {
             plansID = dataGrid.CurrentRow.Cells[0].Value.ToString();
-            MessageBox.Show(plansID);
         }
 
         private async void editarToolStripMenuItem_Click(Object sender, EventArgs e)

@@ -62,13 +62,13 @@ namespace ProVantagensApp
             this.typePlan,
             this.valuePlan});
             this.dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGrid.Location = new System.Drawing.Point(0, 52);
+            this.dataGrid.Location = new System.Drawing.Point(8, 52);
             this.dataGrid.Margin = new System.Windows.Forms.Padding(16);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(682, 593);
+            this.dataGrid.Size = new System.Drawing.Size(666, 585);
             this.dataGrid.TabIndex = 5;
             this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick);
             // 
@@ -115,10 +115,10 @@ namespace ProVantagensApp
             this.removerToolStripMenuItem,
             this.editarToolStripMenuItem,
             this.adicionarToolStripMenuItem});
-            this.menuTab.Location = new System.Drawing.Point(0, 0);
+            this.menuTab.Location = new System.Drawing.Point(8, 0);
             this.menuTab.Name = "menuTab";
             this.menuTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTab.Size = new System.Drawing.Size(682, 24);
+            this.menuTab.Size = new System.Drawing.Size(666, 24);
             this.menuTab.TabIndex = 4;
             this.menuTab.Text = "menuStrip1";
             // 
@@ -151,9 +151,9 @@ namespace ProVantagensApp
             this.pnTop.Controls.Add(this.lbSearch);
             this.pnTop.Controls.Add(this.txtSearch);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTop.Location = new System.Drawing.Point(0, 24);
+            this.pnTop.Location = new System.Drawing.Point(8, 24);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(682, 28);
+            this.pnTop.Size = new System.Drawing.Size(666, 28);
             this.pnTop.TabIndex = 6;
             // 
             // cboSearch
@@ -204,10 +204,12 @@ namespace ProVantagensApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.pnTop);
             this.Controls.Add(this.menuTab);
             this.Name = "ctrlBenefits";
+            this.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
             this.Size = new System.Drawing.Size(682, 645);
             this.Load += new System.EventHandler(this.ctrlBenefits_LoadAsync);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();

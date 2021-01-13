@@ -16,9 +16,8 @@ namespace ProVantagensApp
     public partial class frmEditPlan : Form
     {
         private String planID;
-        private Plans plans;
+        private Plans plans = new Plans();
         private int _width;
-        string checkboxes = "";
         private bool check;
         private DocumentReference documentReference;
         private DocumentSnapshot documentSnapshot;
@@ -43,8 +42,7 @@ namespace ProVantagensApp
             documentSnapshot = await documentReference.GetSnapshotAsync();
             plans = documentSnapshot.ConvertTo<Plans>();
 
-
-
+            MessageBox.Show(plans.image);
             imgPlans.LoadAsync(plans.image);
             imgPlans.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -57,8 +55,6 @@ namespace ProVantagensApp
                 cboType.Text = plans.type;
                 txtValue.Text = plans.value;
                 txtPDF.Text = plans.contract;
-                imgPlans.Load(plans.image);
-                imgPlans.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             else
             {

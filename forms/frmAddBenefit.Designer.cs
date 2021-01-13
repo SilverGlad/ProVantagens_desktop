@@ -61,10 +61,10 @@ namespace ProVantagensApp
             // btnAddImg
             // 
             this.btnAddImg.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddImg.Location = new System.Drawing.Point(176, 298);
+            this.btnAddImg.Location = new System.Drawing.Point(157, 298);
             this.btnAddImg.Name = "btnAddImg";
             this.btnAddImg.Size = new System.Drawing.Size(149, 23);
-            this.btnAddImg.TabIndex = 36;
+            this.btnAddImg.TabIndex = 0;
             this.btnAddImg.Text = "Alterar imagem";
             this.btnAddImg.UseVisualStyleBackColor = true;
             this.btnAddImg.Click += new System.EventHandler(this.btnAddImg_Click);
@@ -72,9 +72,9 @@ namespace ProVantagensApp
             // imgBenefits
             // 
             this.imgBenefits.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgBenefits.Location = new System.Drawing.Point(119, 12);
+            this.imgBenefits.Location = new System.Drawing.Point(31, 12);
             this.imgBenefits.Name = "imgBenefits";
-            this.imgBenefits.Size = new System.Drawing.Size(280, 280);
+            this.imgBenefits.Size = new System.Drawing.Size(422, 280);
             this.imgBenefits.TabIndex = 35;
             this.imgBenefits.TabStop = false;
             // 
@@ -84,7 +84,7 @@ namespace ProVantagensApp
             this.btnSalvar.Location = new System.Drawing.Point(6, 40);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 34);
-            this.btnSalvar.TabIndex = 16;
+            this.btnSalvar.TabIndex = 0;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -97,7 +97,7 @@ namespace ProVantagensApp
             this.groupBox4.Location = new System.Drawing.Point(31, 697);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(422, 100);
-            this.groupBox4.TabIndex = 38;
+            this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Controles";
             // 
@@ -107,7 +107,7 @@ namespace ProVantagensApp
             this.btnCancelar.Location = new System.Drawing.Point(316, 40);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 34);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -126,7 +126,7 @@ namespace ProVantagensApp
             this.groupBox2.Location = new System.Drawing.Point(31, 327);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(422, 364);
-            this.groupBox2.TabIndex = 37;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados";
             // 
@@ -137,14 +137,14 @@ namespace ProVantagensApp
             this.checkList.Location = new System.Drawing.Point(73, 258);
             this.checkList.Name = "checkList";
             this.checkList.Size = new System.Drawing.Size(343, 80);
-            this.checkList.TabIndex = 0;
+            this.checkList.TabIndex = 3;
             // 
             // txtValue
             // 
             this.txtValue.Location = new System.Drawing.Point(73, 228);
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(100, 24);
-            this.txtValue.TabIndex = 4;
+            this.txtValue.TabIndex = 2;
             this.txtValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_valor_KeyPress);
             this.txtValue.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_valor_KeyUp);
             this.txtValue.Leave += new System.EventHandler(this.txt_valor_Leave);
@@ -186,7 +186,7 @@ namespace ProVantagensApp
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(343, 173);
-            this.txtDescription.TabIndex = 3;
+            this.txtDescription.TabIndex = 1;
             // 
             // txtName
             // 
@@ -194,7 +194,7 @@ namespace ProVantagensApp
             this.txtName.Location = new System.Drawing.Point(73, 19);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(343, 24);
-            this.txtName.TabIndex = 3;
+            this.txtName.TabIndex = 0;
             // 
             // frmAddBenefit
             // 
@@ -202,7 +202,7 @@ namespace ProVantagensApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(506, 639);
+            this.ClientSize = new System.Drawing.Size(540, 639);
             this.Controls.Add(this.btnAddImg);
             this.Controls.Add(this.imgBenefits);
             this.Controls.Add(this.groupBox4);

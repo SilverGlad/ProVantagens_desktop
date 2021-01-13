@@ -11,6 +11,7 @@ using Google.Cloud.Firestore;
 using Firebase.Auth;
 using System.Net;
 using HtmlAgilityPack;
+using System.Globalization;
 
 namespace ProVantagensApp
 {
@@ -68,10 +69,7 @@ namespace ProVantagensApp
 
 
         }
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-            
-        }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -101,6 +99,10 @@ namespace ProVantagensApp
         private void form_MouseUp(object sender, MouseEventArgs e)
         {
             mouseClicked = false;
+        }
+
+        private void FrmLogin_Load(Object sender, EventArgs e)
+        {
         }
     }
 }

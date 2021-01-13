@@ -130,7 +130,6 @@ namespace ProVantagensApp
                 try
                 {
                     await loadBenefitsAsync();
-
                 }
                 catch
                 {
@@ -139,10 +138,11 @@ namespace ProVantagensApp
 
         }
 
-        private void adicionarToolStripMenuItem_Click(Object sender, EventArgs e)
+        private async void adicionarToolStripMenuItem_Click(Object sender, EventArgs e)
         {
             frmAddBenefit frm = new frmAddBenefit();
             frm.ShowDialog();
+            await loadBenefitsAsync();
         }
 
         private async void btnSearch_Click(Object sender, EventArgs e)

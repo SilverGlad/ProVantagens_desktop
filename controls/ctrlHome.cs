@@ -40,16 +40,30 @@ namespace ProVantagensApp
             documentReference = db.Collection("home").Document("drlmPXCpRvfPmsEx2r0p");
             documentSnapshot = await documentReference.GetSnapshotAsync();
 
-            listImage = documentSnapshot.GetValue<List<String>>("images");
-
-            imgNow = 0;
-            imgLimit = listImage.Count;
-            imgHome.Load(listImage[imgNow]);
+            try
+            {
+                loadImage();
+            }
+            catch
+            {
+                imgHome.Image = null;
+                MessageBox.Show("Nenhuma imagem encontrada");
+            }
 
             lbRight.Parent = imgHome;
             lbRight.BackColor = Color.Transparent;
             lbLeft.Parent = imgHome;
             lbLeft.BackColor = Color.Transparent;
+
+        }
+
+        void loadImage()
+        {
+            listImage = documentSnapshot.GetValue<List<String>>("images");
+
+            imgNow = 0;
+            imgLimit = listImage.Count;
+            imgHome.Load(listImage[imgNow]);
 
         }
 
@@ -119,17 +133,17 @@ namespace ProVantagensApp
         {
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp, *.png";
             if (open.ShowDialog() == DialogResult.OK)
             {
-                // display image in picture box  
-                imgHome.Load(listImage[listImage.Count-1]);
-                imgNow = listImage.Count - 1;
-                imgLimit = listImage.Count;
-                // image file path  
                 imgFile = open.FileName;
                 await UploadImageAsync();
                 updateData();
+                imgHome.Load(listImage[listImage.Count-1]);
+                imgNow = listImage.Count - 1;
+                imgLimit = listImage.Count;
+
+
             }
         }
 

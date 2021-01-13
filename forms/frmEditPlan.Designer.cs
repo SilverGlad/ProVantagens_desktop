@@ -44,8 +44,8 @@ namespace ProVantagensApp
             this.txtName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPDF = new System.Windows.Forms.Label();
-            this.btnAddPDF = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAddPDF = new System.Windows.Forms.Button();
             this.imgPlans = new System.Windows.Forms.PictureBox();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,10 +67,10 @@ namespace ProVantagensApp
             // btnAddImg
             // 
             this.btnAddImg.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddImg.Location = new System.Drawing.Point(176, 547);
+            this.btnAddImg.Location = new System.Drawing.Point(174, 298);
             this.btnAddImg.Name = "btnAddImg";
             this.btnAddImg.Size = new System.Drawing.Size(149, 23);
-            this.btnAddImg.TabIndex = 40;
+            this.btnAddImg.TabIndex = 0;
             this.btnAddImg.Text = "Alterar imagem";
             this.btnAddImg.UseVisualStyleBackColor = true;
             this.btnAddImg.Click += new System.EventHandler(this.btnAddImg_Click);
@@ -81,7 +81,7 @@ namespace ProVantagensApp
             this.btnSalvar.Location = new System.Drawing.Point(6, 40);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 34);
-            this.btnSalvar.TabIndex = 16;
+            this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -91,10 +91,10 @@ namespace ProVantagensApp
             this.groupBox4.Controls.Add(this.btnCancelar);
             this.groupBox4.Controls.Add(this.btnSalvar);
             this.groupBox4.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(31, 1037);
+            this.groupBox4.Location = new System.Drawing.Point(37, 788);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(422, 100);
-            this.groupBox4.TabIndex = 42;
+            this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Controles";
             // 
@@ -104,7 +104,7 @@ namespace ProVantagensApp
             this.btnCancelar.Location = new System.Drawing.Point(316, 40);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 34);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -120,10 +120,10 @@ namespace ProVantagensApp
             this.groupBox2.Controls.Add(this.txtDescription);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(31, 706);
+            this.groupBox2.Location = new System.Drawing.Point(37, 457);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(422, 325);
-            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados";
             // 
@@ -133,7 +133,7 @@ namespace ProVantagensApp
             this.cboType.Location = new System.Drawing.Point(73, 49);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(121, 23);
-            this.cboType.TabIndex = 5;
+            this.cboType.TabIndex = 2;
             // 
             // txtValue
             // 
@@ -190,17 +190,17 @@ namespace ProVantagensApp
             this.txtName.Location = new System.Drawing.Point(73, 19);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(343, 24);
-            this.txtName.TabIndex = 3;
+            this.txtName.TabIndex = 1;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtPDF);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.btnAddPDF);
-            this.groupBox1.Location = new System.Drawing.Point(31, 576);
+            this.groupBox1.Location = new System.Drawing.Point(37, 327);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(422, 124);
-            this.groupBox1.TabIndex = 43;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contrato";
             // 
@@ -213,6 +213,16 @@ namespace ProVantagensApp
             this.txtPDF.TabIndex = 42;
             this.txtPDF.Text = "pdf";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProVantagensApp.Properties.Resources.iconPDF;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 52);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnAddPDF
             // 
             this.btnAddPDF.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -224,20 +234,10 @@ namespace ProVantagensApp
             this.btnAddPDF.UseVisualStyleBackColor = true;
             this.btnAddPDF.Click += new System.EventHandler(this.btnAddPDF_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProVantagensApp.Properties.Resources.iconPDF;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 52);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 41;
-            this.pictureBox1.TabStop = false;
-            // 
             // imgPlans
             // 
             this.imgPlans.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgPlans.Location = new System.Drawing.Point(119, 261);
+            this.imgPlans.Location = new System.Drawing.Point(117, 12);
             this.imgPlans.Name = "imgPlans";
             this.imgPlans.Size = new System.Drawing.Size(280, 280);
             this.imgPlans.TabIndex = 39;

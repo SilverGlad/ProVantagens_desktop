@@ -16,7 +16,7 @@ namespace ProVantagensApp
     public partial class frmAddBenefit : Form
     {
         private String benefitID;
-        private Benefits benefits;
+        private Benefits benefits = new Benefits();
         private int _width;
         string checkboxes = "";
         private bool check;
@@ -28,13 +28,25 @@ namespace ProVantagensApp
             InitializeComponent();
         }
 
+        private string alfanumericoAleatorio(int tamanho)
+        {
+            var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            benefitID = new String(
+                Enumerable.Repeat(chars, tamanho)
+                          .Select(s => s[random.Next(s.Length)])
+                          .ToArray());
+            return benefitID;
+        }
+
         private async void frmAddBenefit_Load(Object sender, EventArgs e)
         {
+            alfanumericoAleatorio(20);
             string path = AppDomain.CurrentDomain.BaseDirectory + @"pro-vantagens-firebase-adminsdk-5cf5q-82ec44750b.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
 
             FirestoreDb db = FirestoreDb.Create("pro-vantagens");
-
+            documentReference = db.Collection("benefits").Document(benefitID);
             Query plansQuery = db.Collection("plans");
             QuerySnapshot snapshots = await plansQuery.GetSnapshotAsync();
 
@@ -61,10 +73,9 @@ namespace ProVantagensApp
 
             };
 
-            if (documentSnapshot.Exists)
-            {
-                await documentReference.SetAsync(data);
-            }
+            
+            await documentReference.SetAsync(data);
+           
         }
 
         private void btnAddImg_Click(Object sender, EventArgs e)
@@ -76,6 +87,7 @@ namespace ProVantagensApp
             {
                 // display image in picture box  
                 imgBenefits.Image = new Bitmap(open.FileName);
+                imgBenefits.SizeMode = PictureBoxSizeMode.StretchImage;
                 // image file path  
                 imgFile = open.FileName;
             }
@@ -95,7 +107,7 @@ namespace ProVantagensApp
             var task = new FirebaseStorage("pro-vantagens.appspot.com")
                 .Child("benefits")
                 .Child(benefitID)
-                .Child("imagePartner")
+                .Child("imageBenefit")
                 .PutAsync(stream);
 
             // Track progress of the upload
@@ -125,14 +137,12 @@ namespace ProVantagensApp
                     await UploadImageAsync();
                 }
                 setData();
-                ctrlBenefits ctrl = new ctrlBenefits();
-                await ctrl.loadBenefitsAsync();
                 MessageBox.Show("Dados atualizados com sucesso!");
 
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao tentar atualizar os dados.");
+                MessageBox.Show("Ocorreu um erro ao tentar atualizar os dados.  " + ex);
                 btnSalvar.Enabled = true;
             }
             this.Close();
@@ -164,8 +174,16 @@ namespace ProVantagensApp
 
         private void txt_valor_Leave(object sender, EventArgs e)
         {
-            valor = txtValue.Text.Replace("R$", "");
-            txtValue.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            try
+            {
+                valor = txtValue.Text.Replace("R$", "");
+                txtValue.Text = string.Format("{0:C}", Convert.ToDouble(valor));
+            }
+            catch
+            {
+
+            }
+
         }
 
         private void txt_valor_KeyUp(object sender, KeyEventArgs e)
