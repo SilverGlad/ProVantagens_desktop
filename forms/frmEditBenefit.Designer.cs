@@ -207,6 +207,8 @@ namespace ProVantagensApp
             this.Controls.Add(this.imgBenefits);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
+            this.MaximumSize = new System.Drawing.Size(522, 1920);
+            this.MinimumSize = new System.Drawing.Size(522, 678);
             this.Name = "frmEditBenefit";
             this.Text = "frmEditBenefit";
             this.Load += new System.EventHandler(this.frmEditBenefit_Load);

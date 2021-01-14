@@ -30,9 +30,7 @@ namespace ProVantagensApp.forms
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.txtDueDate = new System.Windows.Forms.MaskedTextBox();
             this.cboPaymentMethod = new System.Windows.Forms.ComboBox();
             this.txtPlanName = new System.Windows.Forms.TextBox();
             this.txtHolder = new System.Windows.Forms.TextBox();
@@ -40,22 +38,26 @@ namespace ProVantagensApp.forms
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtAditional = new System.Windows.Forms.TextBox();
+            this.txtTotalValue = new System.Windows.Forms.TextBox();
             this.txtTxAd = new System.Windows.Forms.TextBox();
             this.txtPlanValue = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pnDependents = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddDependent = new System.Windows.Forms.Button();
-            this.txtDueDate = new System.Windows.Forms.MaskedTextBox();
-            this.txtTotalValue = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnDependents.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -75,43 +77,17 @@ namespace ProVantagensApp.forms
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // groupBox4
+            // txtDueDate
             // 
-            this.groupBox4.Controls.Add(this.btnCancelar);
-            this.groupBox4.Controls.Add(this.btnSalvar);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox4.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(0, 403);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(545, 100);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Controles";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(415, 40);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 34);
-            this.btnCancelar.TabIndex = 1;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(6, 40);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(100, 34);
-            this.btnSalvar.TabIndex = 0;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.txtDueDate.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.txtDueDate.Location = new System.Drawing.Point(131, 135);
+            this.txtDueDate.Mask = "00";
+            this.txtDueDate.Name = "txtDueDate";
+            this.txtDueDate.Size = new System.Drawing.Size(100, 28);
+            this.txtDueDate.TabIndex = 3;
             // 
             // cboPaymentMethod
             // 
-            this.cboPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPaymentMethod.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.cboPaymentMethod.FormattingEnabled = true;
             this.cboPaymentMethod.Items.AddRange(new object[] {
@@ -181,6 +157,40 @@ namespace ProVantagensApp.forms
             this.label1.TabIndex = 0;
             this.label1.Text = "Titular:";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnCancelar);
+            this.groupBox4.Controls.Add(this.btnSalvar);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(0, 400);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(545, 100);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Controles";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(415, 40);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(100, 34);
+            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.Location = new System.Drawing.Point(6, 40);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(100, 34);
+            this.btnSalvar.TabIndex = 0;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtAditional);
@@ -192,7 +202,7 @@ namespace ProVantagensApp.forms
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 247);
+            this.groupBox2.Location = new System.Drawing.Point(0, 244);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(545, 156);
             this.groupBox2.TabIndex = 5;
@@ -208,6 +218,16 @@ namespace ProVantagensApp.forms
             this.txtAditional.TabIndex = 9;
             this.txtAditional.TextChanged += new System.EventHandler(this.txtAditional_TextChanged);
             // 
+            // txtTotalValue
+            // 
+            this.txtTotalValue.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.txtTotalValue.Location = new System.Drawing.Point(165, 118);
+            this.txtTotalValue.Name = "txtTotalValue";
+            this.txtTotalValue.ReadOnly = true;
+            this.txtTotalValue.Size = new System.Drawing.Size(107, 28);
+            this.txtTotalValue.TabIndex = 7;
+            this.txtTotalValue.TextChanged += new System.EventHandler(this.txtTotalValue_TextChanged);
+            // 
             // txtTxAd
             // 
             this.txtTxAd.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
@@ -216,6 +236,7 @@ namespace ProVantagensApp.forms
             this.txtTxAd.ReadOnly = true;
             this.txtTxAd.Size = new System.Drawing.Size(107, 28);
             this.txtTxAd.TabIndex = 7;
+            this.txtTxAd.Text = "R$ 20,00";
             // 
             // txtPlanValue
             // 
@@ -236,6 +257,16 @@ namespace ProVantagensApp.forms
             this.label6.Size = new System.Drawing.Size(144, 20);
             this.label6.TabIndex = 4;
             this.label6.Text = "Valor do plano:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(47, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Valor total:";
             // 
             // label8
             // 
@@ -260,55 +291,37 @@ namespace ProVantagensApp.forms
             // pnDependents
             // 
             this.pnDependents.AutoSize = true;
-            this.pnDependents.Controls.Add(this.btnAddDependent);
+            this.pnDependents.Controls.Add(this.panel1);
             this.pnDependents.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnDependents.Location = new System.Drawing.Point(0, 190);
             this.pnDependents.Name = "pnDependents";
-            this.pnDependents.Size = new System.Drawing.Size(545, 57);
+            this.pnDependents.Size = new System.Drawing.Size(545, 54);
             this.pnDependents.TabIndex = 6;
             this.pnDependents.TabStop = false;
             this.pnDependents.Text = "Dependentes";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnAddDependent);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(539, 35);
+            this.panel1.TabIndex = 1;
             // 
             // btnAddDependent
             // 
             this.btnAddDependent.BackColor = System.Drawing.Color.Transparent;
             this.btnAddDependent.BackgroundImage = global::ProVantagensApp.Properties.Resources.iconAdd;
             this.btnAddDependent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddDependent.FlatAppearance.BorderSize = 0;
             this.btnAddDependent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddDependent.Location = new System.Drawing.Point(478, 6);
+            this.btnAddDependent.Location = new System.Drawing.Point(475, 0);
             this.btnAddDependent.Name = "btnAddDependent";
             this.btnAddDependent.Size = new System.Drawing.Size(37, 32);
             this.btnAddDependent.TabIndex = 0;
             this.btnAddDependent.UseVisualStyleBackColor = false;
             this.btnAddDependent.Click += new System.EventHandler(this.btnAddDependent_Click);
-            // 
-            // txtDueDate
-            // 
-            this.txtDueDate.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.txtDueDate.Location = new System.Drawing.Point(131, 135);
-            this.txtDueDate.Mask = "00/00/0000";
-            this.txtDueDate.Name = "txtDueDate";
-            this.txtDueDate.Size = new System.Drawing.Size(100, 28);
-            this.txtDueDate.TabIndex = 3;
-            // 
-            // txtTotalValue
-            // 
-            this.txtTotalValue.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.txtTotalValue.Location = new System.Drawing.Point(165, 118);
-            this.txtTotalValue.Name = "txtTotalValue";
-            this.txtTotalValue.ReadOnly = true;
-            this.txtTotalValue.Size = new System.Drawing.Size(107, 28);
-            this.txtTotalValue.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(47, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Valor total:";
             // 
             // frmFinalizeClient
             // 
@@ -321,6 +334,8 @@ namespace ProVantagensApp.forms
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pnDependents);
             this.Controls.Add(this.groupBox1);
+            this.MaximumSize = new System.Drawing.Size(561, 1920);
+            this.MinimumSize = new System.Drawing.Size(561, 678);
             this.Name = "frmFinalizeClient";
             this.Text = "frmFinalizeClient";
             this.Load += new System.EventHandler(this.frmFinalizeClient_Load);
@@ -330,6 +345,7 @@ namespace ProVantagensApp.forms
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.pnDependents.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,9 +372,10 @@ namespace ProVantagensApp.forms
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox pnDependents;
-        private System.Windows.Forms.Button btnAddDependent;
         private System.Windows.Forms.MaskedTextBox txtDueDate;
         private System.Windows.Forms.TextBox txtTotalValue;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnAddDependent;
     }
 }

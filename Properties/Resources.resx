@@ -121,14 +121,11 @@
   <data name="add_user-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_user-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="opened-gift" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\opened-gift.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow-left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="partners" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\partners.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -138,6 +135,9 @@
   </data>
   <data name="MenuIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="opened-gift" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\opened-gift.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,13 +154,16 @@
   <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="iconPDF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconPDF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="list" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\list.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconPDF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconPDF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconMenos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconMenos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

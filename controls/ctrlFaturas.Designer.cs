@@ -41,8 +41,6 @@ namespace ProVantagensApp
             this.lbSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.pnTop = new System.Windows.Forms.Panel();
-            this.btnVencidos = new System.Windows.Forms.RadioButton();
             this.idusuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +49,8 @@ namespace ProVantagensApp
             this.typePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valuePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnTop = new System.Windows.Forms.Panel();
+            this.btnVencidos = new System.Windows.Forms.RadioButton();
             this.menuTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.pnTop.SuspendLayout();
@@ -186,35 +186,6 @@ namespace ProVantagensApp
             this.dataGrid.Size = new System.Drawing.Size(666, 562);
             this.dataGrid.TabIndex = 10;
             // 
-            // pnTop
-            // 
-            this.pnTop.BackColor = System.Drawing.Color.Transparent;
-            this.pnTop.Controls.Add(this.btnAll);
-            this.pnTop.Controls.Add(this.btnVencidos);
-            this.pnTop.Controls.Add(this.btnPagos);
-            this.pnTop.Controls.Add(this.btnPendentes);
-            this.pnTop.Controls.Add(this.cboSearch);
-            this.pnTop.Controls.Add(this.btnShowAll);
-            this.pnTop.Controls.Add(this.btnSearch);
-            this.pnTop.Controls.Add(this.lbSearch);
-            this.pnTop.Controls.Add(this.txtSearch);
-            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTop.Location = new System.Drawing.Point(8, 24);
-            this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(666, 51);
-            this.pnTop.TabIndex = 11;
-            // 
-            // btnVencidos
-            // 
-            this.btnVencidos.AutoSize = true;
-            this.btnVencidos.Location = new System.Drawing.Point(286, 30);
-            this.btnVencidos.Name = "btnVencidos";
-            this.btnVencidos.Size = new System.Drawing.Size(107, 17);
-            this.btnVencidos.TabIndex = 4;
-            this.btnVencidos.Text = "Apenas vencidos";
-            this.btnVencidos.UseVisualStyleBackColor = true;
-            this.btnVencidos.CheckedChanged += new System.EventHandler(this.btnVencidos_CheckedChanged);
-            // 
             // idusuario
             // 
             this.idusuario.HeaderText = "ID usuário";
@@ -269,10 +240,40 @@ namespace ProVantagensApp
             this.valuePlan.Name = "valuePlan";
             this.valuePlan.ReadOnly = true;
             // 
+            // pnTop
+            // 
+            this.pnTop.BackColor = System.Drawing.Color.Transparent;
+            this.pnTop.Controls.Add(this.btnAll);
+            this.pnTop.Controls.Add(this.btnVencidos);
+            this.pnTop.Controls.Add(this.btnPagos);
+            this.pnTop.Controls.Add(this.btnPendentes);
+            this.pnTop.Controls.Add(this.cboSearch);
+            this.pnTop.Controls.Add(this.btnShowAll);
+            this.pnTop.Controls.Add(this.btnSearch);
+            this.pnTop.Controls.Add(this.lbSearch);
+            this.pnTop.Controls.Add(this.txtSearch);
+            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTop.Location = new System.Drawing.Point(8, 24);
+            this.pnTop.Name = "pnTop";
+            this.pnTop.Size = new System.Drawing.Size(666, 51);
+            this.pnTop.TabIndex = 11;
+            // 
+            // btnVencidos
+            // 
+            this.btnVencidos.AutoSize = true;
+            this.btnVencidos.Location = new System.Drawing.Point(286, 30);
+            this.btnVencidos.Name = "btnVencidos";
+            this.btnVencidos.Size = new System.Drawing.Size(107, 17);
+            this.btnVencidos.TabIndex = 4;
+            this.btnVencidos.Text = "Apenas vencidos";
+            this.btnVencidos.UseVisualStyleBackColor = true;
+            this.btnVencidos.CheckedChanged += new System.EventHandler(this.btnVencidos_CheckedChanged);
+            // 
             // ctrlFaturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.pnTop);

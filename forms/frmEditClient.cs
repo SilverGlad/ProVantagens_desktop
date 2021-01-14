@@ -17,27 +17,79 @@ using System.Windows.Forms;
 
 namespace ProVantagensApp
 {
-    public partial class frmAddClient : Form
+    public partial class frmEditClient : Form
     {
         private String clientID;
         private Clients clients = new Clients();
         private Address address = new Address();
         private int _width;
         private DocumentReference documentReference;
-        public frmAddClient()
+        private DocumentSnapshot documentSnapshot;
+        public frmEditClient(string clientID)
         {
             InitializeComponent();
+            this.clientID = clientID;
         }
 
-        private void frmAddClient_Load(Object sender, EventArgs e)
+        private async void frmEditClient_Load(Object sender, EventArgs e)
         {
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"pro-vantagens-firebase-adminsdk-5cf5q-82ec44750b.json";
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
+            FirestoreDb db = FirestoreDb.Create("pro-vantagens");
+            documentReference = db.Collection("users").Document(clientID);
+            documentSnapshot = await documentReference.GetSnapshotAsync();
+            clients = documentSnapshot.ConvertTo<Clients>();
+
+
             cboState.DataSource = listStates;
             _width = this.Width;
-            btnPessoaFisica.Checked = true;
-            txtBtnTel1.Checked = true;
-            txtBtnTel2.Checked = true;
-            cboNvAcesso.Text = "0";
 
+            btnPessoaFisica.Checked = false;
+            lbCPFCNPJ.Text = "CNPJ";
+            txtCPFCNPJ.Mask = "00,000,000/0000-00";
+            txtRG.Enabled = false;
+            txtOrgaoEmissor.Enabled = false;
+            txtExpedicao.Enabled = false;
+            txtEstadoCivil.Enabled = false;
+            txtNomeMae.Enabled = false;
+            txtNomePai.Enabled = false;
+            txtNomeConjuge.Enabled = false;
+
+            if(clients.cpf.Length < 18)
+            {
+                btnPessoaFisica.Checked = true;
+                txtBtnTel1.Checked = true;
+                txtBtnTel2.Checked = true;
+                cboNvAcesso.Text = clients.accessLevel.ToString();
+                txtName.Text = clients.name;
+                address = clients.address;
+                txtCPFCNPJ.Text = clients.cpf;
+                txtDtn.Text = clients.dtn;
+                txtEmail.Text = clients.email;
+                txtEstadoCivil.Text = clients.estadocivil;
+                txtExpedicao.Text = clients.expedicao;
+                txtNomeConjuge.Text = clients.nomeconjugue;
+                txtNomeMae.Text = clients.nomemae;
+                txtNomePai.Text = clients.nomepai;
+                txtOrgaoEmissor.Text = clients.orgaoemissor;
+                txtRG.Text = clients.rg;
+                txtPhone1.Text = clients.tel1;
+                txtPhone2.Text = clients.tel2;
+
+            }
+            else
+            {
+                btnPessoaJurídica.Checked = true;
+                txtBtnTel1.Checked = true;
+                txtBtnTel2.Checked = true;
+                cboNvAcesso.Text = clients.accessLevel.ToString();
+                txtName.Text = clients.name;
+                address = clients.address;
+                txtCPFCNPJ.Text = clients.cpf;
+                txtEmail.Text = clients.email;
+                txtPhone1.Text = clients.tel1;
+                txtPhone2.Text = clients.tel2;
+            }
 
         }
 
@@ -72,16 +124,9 @@ namespace ProVantagensApp
                 {"tel2", txtPhone2.Text},
             };
 
-            var authProvider = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyA0hQhaFdSKMTQfpSltAmDdqdMvDDG-aR4"));
             try
             {
-                var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(txtEmail.Text, "123456");
-                clientID = auth.User.LocalId;
-                string path = AppDomain.CurrentDomain.BaseDirectory + @"pro-vantagens-firebase-adminsdk-5cf5q-82ec44750b.json";
-                Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
-                FirestoreDb db = FirestoreDb.Create("pro-vantagens");
-                documentReference = db.Collection("users").Document(clientID);
-                await documentReference.SetAsync(data);
+                await documentReference.UpdateAsync(data);
             }
             catch (Exception ex)
             {
@@ -93,7 +138,7 @@ namespace ProVantagensApp
 
         private void btnPessoaFisica_CheckedChanged(Object sender, EventArgs e)
         {
-            if(btnPessoaFisica.Checked == true)
+            if (btnPessoaFisica.Checked == true)
             {
                 btnPessoaJurídica.Checked = false;
                 lbCPFCNPJ.Text = "CPF";
@@ -104,30 +149,19 @@ namespace ProVantagensApp
                 txtEstadoCivil.Enabled = true;
                 txtNomeMae.Enabled = true;
                 txtNomePai.Enabled = true;
+                txtDtn.Enabled = true;
+
             }
         }
 
         private void btnPessoaJurídica_CheckedChanged(Object sender, EventArgs e)
         {
-            if(btnPessoaJurídica.Checked == true)
-            {
-                btnPessoaFisica.Checked = false;
-                lbCPFCNPJ.Text = "CNPJ";
-                txtCPFCNPJ.Mask = "00,000,000/0000-00";
-                txtRG.Enabled = false;
-                txtOrgaoEmissor.Enabled = false;
-                txtExpedicao.Enabled = false;
-                txtEstadoCivil.Enabled = false;
-                txtNomeMae.Enabled = false;
-                txtNomePai.Enabled = false;
-                txtNomeConjuge.Enabled = false;
 
-            }
         }
 
         private void txtBtnTel1_CheckedChanged(Object sender, EventArgs e)
         {
-            if(txtBtnTel1.Checked == true)
+            if (txtBtnTel1.Checked == true)
             {
                 txtBtnCel1.Checked = false;
                 txtPhone1.Mask = "(00) 0000-0000";
@@ -145,7 +179,7 @@ namespace ProVantagensApp
                 txtBtnTel1.Checked = false;
                 txtPhone1.Mask = "(00) 0 0000-0000";
             }
-            if (txtBtnCel1.Checked == false)
+            if (txtBtnCel1.Checked == true)
             {
                 txtBtnTel1.Checked = true;
             }
@@ -229,29 +263,10 @@ namespace ProVantagensApp
                 }
             }
 
-            }
-            private async void btnSalvar_Click(Object sender, EventArgs e)
+        }
+        private async void btnSalvar_Click(Object sender, EventArgs e)
         {
-            if (txtName.Text == "" || txtNumber.Text == "" || txtDistrict.Text == "" || cboCity.Text == "" || cboState.Text == "" || txtStreet.Text == "" || txtPhone1.Text == "")
-            {
-                MessageBox.Show("Erro! Verifique se preencheu todos os campos");
-            }
-            else
-            {
-                btnSalvar.Enabled = false;
-                try
-                {
-                    setData();
-                    MessageBox.Show("Dados salvos com sucesso!");
 
-                }
-                catch
-                {
-                    MessageBox.Show("Ocorreu um erro ao tentar salvar os dados.");
-                    btnSalvar.Enabled = true;
-                }
-                this.Close();
-            }
         }
 
         private void btnCancelar_Click(Object sender, EventArgs e)
@@ -5978,11 +5993,6 @@ namespace ProVantagensApp
             "Wanderlândia",
             "Xambioá",
         };
-
-        private void txtEstadoCivil_TextChanged(Object sender, EventArgs e)
-        {
-
-        }
 
         private void txtEstadoCivil_SelectedIndexChanged(Object sender, EventArgs e)
         {

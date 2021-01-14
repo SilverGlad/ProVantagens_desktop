@@ -202,11 +202,13 @@ namespace ProVantagensApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(540, 639);
+            this.ClientSize = new System.Drawing.Size(506, 639);
             this.Controls.Add(this.btnAddImg);
             this.Controls.Add(this.imgBenefits);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
+            this.MaximumSize = new System.Drawing.Size(522, 1920);
+            this.MinimumSize = new System.Drawing.Size(522, 678);
             this.Name = "frmAddBenefit";
             this.Text = "frmAddBenefit";
             this.Load += new System.EventHandler(this.frmAddBenefit_Load);

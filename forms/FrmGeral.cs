@@ -1,10 +1,12 @@
 ﻿using Google.Cloud.Firestore;
 using ProVantagensApp.controls;
+using ProVantagensApp.forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,9 @@ namespace ProVantagensApp
 {
     public partial class FrmGeral : Form
     {
+        private String monthNow;
+        List<Dependents> dependentsList = new List<Dependents>();
+
         public FrmGeral()
         {
             InitializeComponent();
@@ -109,12 +114,72 @@ namespace ProVantagensApp
 
         }
 
-        private void FrmGeral_Load(object sender, EventArgs e)
+        private async void FrmGeral_Load(object sender, EventArgs e)
         {
+            monthNow = DateTime.Now.Month.ToString() + '-' + DateTime.Now.Year.ToString();
+            if (DateTime.Now.Month < 10)
+            {
+                monthNow = "0" + monthNow;
+            }
             string path =  AppDomain.CurrentDomain.BaseDirectory + @"pro-vantagens-firebase-adminsdk-5cf5q-82ec44750b.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             FirestoreDb db = FirestoreDb.Create("pro-vantagens");
             lbUserName.Text = User.Name;
+
+            Query Query = db.Collection("users");
+            QuerySnapshot snapshots = await Query.GetSnapshotAsync();
+            foreach (DocumentSnapshot documentSnapshot in snapshots)
+            {
+                Clients users = documentSnapshot.ConvertTo<Clients>();
+
+                if(users.plan != "")
+                {
+                    if(users.plan != null)
+                    {
+
+                        DocumentReference invoiceReference = db.Collection("users").Document(documentSnapshot.Id).Collection("invoices").Document(monthNow);
+                        DocumentSnapshot invoiceSnap = await invoiceReference.GetSnapshotAsync();
+
+                        if (invoiceSnap.Exists)
+                        {
+
+                        }
+                        else
+                        {
+                            int dependents = 0;
+                            for (int i = 0; i < users.dependents.Count; i++)
+                            {
+                               if(users.dependents[i].aditional == true){
+                                    dependents = dependents + 1;
+                                }
+                            }
+
+                            double dpvalue = dependents * 9.90;
+                            double totalValue = (double.Parse(users.planvalue.Replace("R$ ", "")) + dpvalue);
+
+                            Dictionary<string, object> invoiceData = new Dictionary<string, object>()
+                            {
+                            {"aditional", dpvalue},
+                            {"dueDate", users.dueDate},
+                            {"holder", users.name},
+                            {"month", DateTime.Now.Month.ToString()},
+                            {"paymentMethod", users.paymentMethod},
+                            {"planName", users.plan},
+                            {"status", "Pendente"},
+                            {"totalValue", totalValue},
+                            {"value", users.planvalue},
+                            };
+                            await invoiceReference.SetAsync(invoiceData);
+                        }
+                    }
+                }
+
+
+            }
+            if (User.AccessLevel > 1)
+                {
+                    gbFinances.Visible = true;
+                }
 
             ctrlHome frm = new ctrlHome();
             pnPage.Controls.Clear();
@@ -187,6 +252,18 @@ namespace ProVantagensApp
             btnFaturas.ForeColor = Color.Black;
             btnPagamentos.ForeColor = Color.Black;
             btnRelatorios.ForeColor = Color.Black;
+        }
+
+        private void button1_Click(Object sender, EventArgs e)
+        {
+            frmAddClientAutomatico frm = new frmAddClientAutomatico();
+            frm.Show();
+        }
+
+        private void btnMudarSenha_Click(Object sender, EventArgs e)
+        {
+            frmMudarSenha frm = new frmMudarSenha();
+            frm.Show();
         }
     }
 }

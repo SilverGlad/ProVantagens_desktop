@@ -249,12 +249,14 @@ namespace ProVantagensApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(523, 639);
+            this.ClientSize = new System.Drawing.Size(506, 639);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAddImg);
             this.Controls.Add(this.imgPlans);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
+            this.MaximumSize = new System.Drawing.Size(522, 1920);
+            this.MinimumSize = new System.Drawing.Size(522, 678);
             this.Name = "frmEditPlan";
             this.Text = "frmEditPlan";
             this.Load += new System.EventHandler(this.frmEditPlan_Load);

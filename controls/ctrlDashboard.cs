@@ -59,32 +59,36 @@ namespace ProVantagensApp.controls
 
                 Query Query = db.Collection("users").Document(userDocument.Id).Collection("invoices");
                 QuerySnapshot snapshots = await Query.GetSnapshotAsync();
-
+            
                 foreach (DocumentSnapshot documentSnapshot in snapshots)
                 {
-                    Invoices invoices = documentSnapshot.ConvertTo<Invoices>();
-                   if(documentSnapshot.Id == dataAtual)
+                    if (documentSnapshot.Exists)
                     {
-                        if (invoices.status == "Ok")
+                        Invoices invoices = documentSnapshot.ConvertTo<Invoices>();
+                        if (documentSnapshot.Id == dataAtual)
                         {
-                            invoiceOk = invoiceOk + 1;
+                            if (invoices.status == "Ok")
+                            {
+                                invoiceOk = invoiceOk + 1;
+                            }
+                            if (invoices.status == "Pendente")
+                            {
+                                invoicePendente = invoicePendente + 1;
+                            }
+                            if (invoices.status == "Vencido")
+                            {
+                                invoiceVencida = invoiceVencida + 1;
+                            }
                         }
-                        if (invoices.status == "Pendente")
+                        else
                         {
-                            invoicePendente = invoicePendente + 1;
-                        }
-                        if (invoices.status == "Vencido")
-                        {
-                            invoiceVencida = invoiceVencida + 1;
+                            if (invoices.status == "Vencido")
+                            {
+                                invoiceVencidaOld = invoiceVencidaOld + 1;
+                            }
                         }
                     }
-                    else
-                    {
-                        if (invoices.status == "Vencido")
-                        {
-                            invoiceVencidaOld = invoiceVencidaOld + 1;
-                        }
-                    }
+
                     
                 }
 

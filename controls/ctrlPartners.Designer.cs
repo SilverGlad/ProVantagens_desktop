@@ -29,14 +29,6 @@ namespace ProVantagensApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.idPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valuePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.districtPartners = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.streetPartners = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuTab = new System.Windows.Forms.MenuStrip();
             this.removerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,84 +39,18 @@ namespace ProVantagensApp
             this.btnSearch = new System.Windows.Forms.Button();
             this.lbSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.pnFill = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.idPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.districtPartners = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.streetPartners = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuTab.SuspendLayout();
             this.pnTop.SuspendLayout();
-            this.pnFill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGrid
-            // 
-            this.dataGrid.AllowUserToAddRows = false;
-            this.dataGrid.BackgroundColor = System.Drawing.Color.White;
-            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idPlan,
-            this.namePlan,
-            this.descriptionPlan,
-            this.typePlan,
-            this.valuePlan,
-            this.districtPartners,
-            this.streetPartners});
-            this.dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dataGrid.Margin = new System.Windows.Forms.Padding(16);
-            this.dataGrid.MultiSelect = false;
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.ReadOnly = true;
-            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(666, 585);
-            this.dataGrid.TabIndex = 3;
-            this.dataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellClick);
-            // 
-            // idPlan
-            // 
-            this.idPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.idPlan.HeaderText = "ID";
-            this.idPlan.Name = "idPlan";
-            this.idPlan.ReadOnly = true;
-            this.idPlan.Width = 43;
-            // 
-            // namePlan
-            // 
-            this.namePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.namePlan.HeaderText = "Nome do parceiro";
-            this.namePlan.Name = "namePlan";
-            this.namePlan.ReadOnly = true;
-            // 
-            // descriptionPlan
-            // 
-            this.descriptionPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descriptionPlan.HeaderText = "Tipo";
-            this.descriptionPlan.Name = "descriptionPlan";
-            this.descriptionPlan.ReadOnly = true;
-            // 
-            // typePlan
-            // 
-            this.typePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.typePlan.HeaderText = "Estado";
-            this.typePlan.Name = "typePlan";
-            this.typePlan.ReadOnly = true;
-            // 
-            // valuePlan
-            // 
-            this.valuePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.valuePlan.HeaderText = "Cidade";
-            this.valuePlan.Name = "valuePlan";
-            this.valuePlan.ReadOnly = true;
-            // 
-            // districtPartners
-            // 
-            this.districtPartners.HeaderText = "Bairro";
-            this.districtPartners.Name = "districtPartners";
-            this.districtPartners.ReadOnly = true;
-            // 
-            // streetPartners
-            // 
-            this.streetPartners.HeaderText = "Rua";
-            this.streetPartners.Name = "streetPartners";
-            this.streetPartners.ReadOnly = true;
             // 
             // menuTab
             // 
@@ -218,41 +144,101 @@ namespace ProVantagensApp
             this.txtSearch.Size = new System.Drawing.Size(288, 20);
             this.txtSearch.TabIndex = 0;
             // 
-            // pnFill
+            // dataGrid
             // 
-            this.pnFill.Controls.Add(this.dataGrid);
-            this.pnFill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnFill.Location = new System.Drawing.Point(8, 52);
-            this.pnFill.Name = "pnFill";
-            this.pnFill.Size = new System.Drawing.Size(666, 585);
-            this.pnFill.TabIndex = 5;
+            this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.BackgroundColor = System.Drawing.Color.White;
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idPlan,
+            this.namePlan,
+            this.descriptionPlan,
+            this.typePlan,
+            this.valuePlan,
+            this.districtPartners,
+            this.streetPartners});
+            this.dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGrid.Location = new System.Drawing.Point(8, 52);
+            this.dataGrid.Margin = new System.Windows.Forms.Padding(16);
+            this.dataGrid.MultiSelect = false;
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.ReadOnly = true;
+            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGrid.Size = new System.Drawing.Size(666, 585);
+            this.dataGrid.TabIndex = 5;
+            // 
+            // idPlan
+            // 
+            this.idPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.idPlan.HeaderText = "ID";
+            this.idPlan.Name = "idPlan";
+            this.idPlan.ReadOnly = true;
+            this.idPlan.Width = 43;
+            // 
+            // namePlan
+            // 
+            this.namePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.namePlan.HeaderText = "Nome do parceiro";
+            this.namePlan.Name = "namePlan";
+            this.namePlan.ReadOnly = true;
+            // 
+            // descriptionPlan
+            // 
+            this.descriptionPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descriptionPlan.HeaderText = "Tipo";
+            this.descriptionPlan.Name = "descriptionPlan";
+            this.descriptionPlan.ReadOnly = true;
+            // 
+            // typePlan
+            // 
+            this.typePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.typePlan.HeaderText = "Estado";
+            this.typePlan.Name = "typePlan";
+            this.typePlan.ReadOnly = true;
+            // 
+            // valuePlan
+            // 
+            this.valuePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valuePlan.HeaderText = "Cidade";
+            this.valuePlan.Name = "valuePlan";
+            this.valuePlan.ReadOnly = true;
+            // 
+            // districtPartners
+            // 
+            this.districtPartners.HeaderText = "Bairro";
+            this.districtPartners.Name = "districtPartners";
+            this.districtPartners.ReadOnly = true;
+            // 
+            // streetPartners
+            // 
+            this.streetPartners.HeaderText = "Rua";
+            this.streetPartners.Name = "streetPartners";
+            this.streetPartners.ReadOnly = true;
             // 
             // ctrlPartners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.pnFill);
+            this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.pnTop);
             this.Controls.Add(this.menuTab);
             this.Name = "ctrlPartners";
             this.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
             this.Size = new System.Drawing.Size(682, 645);
             this.Load += new System.EventHandler(this.ctrlPartners_LoadAsync);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.menuTab.ResumeLayout(false);
             this.menuTab.PerformLayout();
             this.pnTop.ResumeLayout(false);
             this.pnTop.PerformLayout();
-            this.pnFill.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.MenuStrip menuTab;
         private System.Windows.Forms.ToolStripMenuItem removerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
@@ -261,9 +247,9 @@ namespace ProVantagensApp
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Panel pnFill;
         private System.Windows.Forms.ComboBox cboSearch;
         private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn namePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionPlan;

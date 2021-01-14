@@ -1,4 +1,8 @@
-﻿using Google.Cloud.Firestore;
+﻿using FirebaseAdmin;
+using FirebaseAdmin.Auth;
+using Google.Apis.Auth.OAuth2;
+using Google.Cloud.Firestore;
+using ProVantagensApp.forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +22,10 @@ namespace ProVantagensApp
         public ctrlClients()
         {
             InitializeComponent();
+            FirebaseApp.Create(new AppOptions()
+            {
+                Credential = GoogleCredential.GetApplicationDefault(),
+            });
         }
 
         private async void ctrlClients_LoadAsync(Object sender, EventArgs e)
@@ -187,9 +195,11 @@ namespace ProVantagensApp
                 Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
 
                 FirestoreDb db = FirestoreDb.Create("pro-vantagens");
-                DocumentReference documentReference = db.Collection("benefits").Document(userID);
-
+                DocumentReference documentReference = db.Collection("users").Document(userID);
+                removerToolStripMenuItem.Enabled = false;
+                await FirebaseAuth.DefaultInstance.DeleteUserAsync(userID);                
                 await documentReference.DeleteAsync();
+                removerToolStripMenuItem.Enabled = true;
                 try
                 {
                     await loadUsersAsync();
@@ -217,7 +227,7 @@ namespace ProVantagensApp
             }
             else
             {
-                frmContractPlan frm = new frmContractPlan();
+                ctrlEditClient frm = new ctrlEditClient(userID);
                 frm.ShowDialog();
                 try
                 {
@@ -232,7 +242,6 @@ namespace ProVantagensApp
 
         private async void adicionarToolStripMenuItem_Click(Object sender, EventArgs e)
         {
-            MessageBox.Show("Criar cliente");
             frmAddClient frm = new frmAddClient();
             frm.ShowDialog();
             try
@@ -259,6 +268,8 @@ namespace ProVantagensApp
         private async void btnShowAll_Click(Object sender, EventArgs e)
         {
             cboSearch.Text = "";
+            txtSearch.Text = "";
+            btnAll.Checked = true;
             btnClientes.Checked = false;
             btnFunc.Checked = false;
             try

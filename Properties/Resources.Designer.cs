@@ -123,6 +123,16 @@ namespace ProVantagensApp.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconMenos {
+            get {
+                object obj = ResourceManager.GetObject("iconMenos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconPDF {
             get {
                 object obj = ResourceManager.GetObject("iconPDF", resourceCulture);

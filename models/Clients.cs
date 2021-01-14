@@ -17,6 +17,9 @@ namespace ProVantagensApp
         public Address address { get; set; }
 
         [FirestoreProperty]
+        public List<Dependents> dependents{ get; set; }
+
+        [FirestoreProperty]
         public String cpf { get; set; }
 
         [FirestoreProperty]

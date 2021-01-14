@@ -32,10 +32,11 @@ namespace ProVantagensApp
             {
                 var auth = authProvider.SignInWithEmailAndPasswordAsync(txtEmail.Text, txtSenha.Text).Result;
                 User.ID = auth.User.LocalId;
+                User.Token = auth.FirebaseToken;
                 await getUser(User.ID);
-                if (User.ID == null)
+                if (User.ID == null || User.AccessLevel == 0)
                 {
-
+                    MessageBox.Show("Você não tem acesso ao programa, entre em contato com seu gestor!");
                 }
                 else
                 {
@@ -66,6 +67,7 @@ namespace ProVantagensApp
             DocumentSnapshot documentSnapshot = await documentReference.GetSnapshotAsync();
 
             User.Name = documentSnapshot.GetValue<String>("name");
+            User.AccessLevel = documentSnapshot.GetValue<int>("accessLevel");
 
 
         }

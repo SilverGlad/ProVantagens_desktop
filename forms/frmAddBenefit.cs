@@ -1,5 +1,6 @@
 ﻿using Firebase.Storage;
 using Google.Cloud.Firestore;
+using ProVantagensApp.models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +18,14 @@ namespace ProVantagensApp
     {
         private String benefitID;
         private Benefits benefits = new Benefits();
+        private List<Modify> listModfies = new List<Modify>();
+        private Modify modify = new Modify();
+        private modifyManager modifyManager = new modifyManager();
         private int _width;
         string checkboxes = "";
         private bool check;
-        private DocumentReference documentReference;
-        private DocumentSnapshot documentSnapshot;
+        private DocumentReference documentReference, modifyReference;
+        private DocumentSnapshot documentSnapshot, modifySnap;
         private String imgFile;
         public frmAddBenefit()
         {
@@ -47,6 +51,19 @@ namespace ProVantagensApp
 
             FirestoreDb db = FirestoreDb.Create("pro-vantagens");
             documentReference = db.Collection("benefits").Document(benefitID);
+            modifyReference = db.Collection("modifies").Document("benefits");
+            modifySnap = await modifyReference.GetSnapshotAsync();
+
+            if (modifySnap.Exists)
+            {
+                modifyManager = modifySnap.ConvertTo<modifyManager>();
+                if (modifyManager.Modifies.Count > 0)
+                {
+                    listModfies = modifyManager.Modifies;
+
+                }
+            }
+
             Query plansQuery = db.Collection("plans");
             QuerySnapshot snapshots = await plansQuery.GetSnapshotAsync();
 
@@ -62,6 +79,11 @@ namespace ProVantagensApp
         async void setData()
         {
 
+            modify.userName = User.ID;
+            modify.screen = "Adicionar beneficios";
+            modify.modifyHour = DateTime.Now.ToString();
+            modify.documentID = benefitID;
+            listModfies.Add(modify);
 
             Dictionary<string, object> data = new Dictionary<string, object>()
             {
@@ -73,9 +95,13 @@ namespace ProVantagensApp
 
             };
 
-            
+            Dictionary<string, object> dataModify = new Dictionary<string, object>()
+            {
+                {"Modifies", listModfies},
+            };
+
             await documentReference.SetAsync(data);
-           
+            await modifyReference.UpdateAsync(dataModify);
         }
 
         private void btnAddImg_Click(Object sender, EventArgs e)

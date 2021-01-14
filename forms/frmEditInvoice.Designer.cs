@@ -34,6 +34,7 @@ namespace ProVantagensApp.forms
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.txtDueDate = new System.Windows.Forms.TextBox();
             this.txtAditional = new System.Windows.Forms.TextBox();
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.cboPaymentMethod = new System.Windows.Forms.ComboBox();
@@ -43,12 +44,11 @@ namespace ProVantagensApp.forms
             this.txtHolder = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtDueDate = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -121,6 +121,18 @@ namespace ProVantagensApp.forms
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // txtDueDate
+            // 
+            this.txtDueDate.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.txtDueDate.Location = new System.Drawing.Point(131, 126);
+            this.txtDueDate.Name = "txtDueDate";
+            this.txtDueDate.Size = new System.Drawing.Size(88, 28);
+            this.txtDueDate.TabIndex = 3;
+            this.txtDueDate.TextChanged += new System.EventHandler(this.txtAditional_TextChanged);
+            this.txtDueDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_valor_adicional_KeyPress);
+            this.txtDueDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_valor_adicional_KeyUp);
+            this.txtDueDate.Leave += new System.EventHandler(this.txt_valor_adicional_Leave);
             // 
             // txtAditional
             // 
@@ -224,6 +236,16 @@ namespace ProVantagensApp.forms
             this.label6.TabIndex = 0;
             this.label6.Text = "Valor do plano:";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(6, 129);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Vencimento:";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -264,28 +286,6 @@ namespace ProVantagensApp.forms
             this.label7.TabIndex = 0;
             this.label7.Text = "Adicional:";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(6, 129);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 20);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Vencimento:";
-            // 
-            // txtDueDate
-            // 
-            this.txtDueDate.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.txtDueDate.Location = new System.Drawing.Point(131, 126);
-            this.txtDueDate.Name = "txtDueDate";
-            this.txtDueDate.Size = new System.Drawing.Size(88, 28);
-            this.txtDueDate.TabIndex = 3;
-            this.txtDueDate.TextChanged += new System.EventHandler(this.txtAditional_TextChanged);
-            this.txtDueDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_valor_adicional_KeyPress);
-            this.txtDueDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_valor_adicional_KeyUp);
-            this.txtDueDate.Leave += new System.EventHandler(this.txt_valor_adicional_Leave);
-            // 
             // frmEditInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,6 +294,7 @@ namespace ProVantagensApp.forms
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(506, 442);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmEditInvoice";
             this.Text = "frmEditInvoice";
             this.Load += new System.EventHandler(this.frmEditInvoice_Load);

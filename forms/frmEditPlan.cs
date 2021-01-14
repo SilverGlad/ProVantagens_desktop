@@ -42,7 +42,6 @@ namespace ProVantagensApp
             documentSnapshot = await documentReference.GetSnapshotAsync();
             plans = documentSnapshot.ConvertTo<Plans>();
 
-            MessageBox.Show(plans.image);
             imgPlans.LoadAsync(plans.image);
             imgPlans.SizeMode = PictureBoxSizeMode.StretchImage;
 

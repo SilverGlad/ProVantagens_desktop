@@ -35,10 +35,10 @@ namespace ProVantagensApp
             this.label1 = new System.Windows.Forms.Label();
             this.txtPhone1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtBtnCel2 = new System.Windows.Forms.RadioButton();
-            this.txtBtnTel2 = new System.Windows.Forms.RadioButton();
-            this.txtBtnCel1 = new System.Windows.Forms.RadioButton();
-            this.txtBtnTel1 = new System.Windows.Forms.RadioButton();
+            this.txtBtnCel1 = new System.Windows.Forms.CheckBox();
+            this.txtBtnCel2 = new System.Windows.Forms.CheckBox();
+            this.txtBtnTel2 = new System.Windows.Forms.CheckBox();
+            this.txtBtnTel1 = new System.Windows.Forms.CheckBox();
             this.txtDtn = new System.Windows.Forms.MaskedTextBox();
             this.txtExpedicao = new System.Windows.Forms.MaskedTextBox();
             this.txtOrgaoEmissor = new System.Windows.Forms.MaskedTextBox();
@@ -136,9 +136,9 @@ namespace ProVantagensApp
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtBtnCel1);
             this.groupBox2.Controls.Add(this.txtBtnCel2);
             this.groupBox2.Controls.Add(this.txtBtnTel2);
-            this.groupBox2.Controls.Add(this.txtBtnCel1);
             this.groupBox2.Controls.Add(this.txtBtnTel1);
             this.groupBox2.Controls.Add(this.txtDtn);
             this.groupBox2.Controls.Add(this.txtExpedicao);
@@ -176,14 +176,24 @@ namespace ProVantagensApp
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados pessoais";
             // 
+            // txtBtnCel1
+            // 
+            this.txtBtnCel1.AutoSize = true;
+            this.txtBtnCel1.Location = new System.Drawing.Point(374, 287);
+            this.txtBtnCel1.Name = "txtBtnCel1";
+            this.txtBtnCel1.Size = new System.Drawing.Size(64, 19);
+            this.txtBtnCel1.TabIndex = 14;
+            this.txtBtnCel1.Text = "Celular";
+            this.txtBtnCel1.UseVisualStyleBackColor = true;
+            this.txtBtnCel1.CheckedChanged += new System.EventHandler(this.txtBtnCel1_CheckedChanged);
+            // 
             // txtBtnCel2
             // 
             this.txtBtnCel2.AutoSize = true;
-            this.txtBtnCel2.Location = new System.Drawing.Point(351, 316);
+            this.txtBtnCel2.Location = new System.Drawing.Point(374, 317);
             this.txtBtnCel2.Name = "txtBtnCel2";
-            this.txtBtnCel2.Size = new System.Drawing.Size(63, 19);
+            this.txtBtnCel2.Size = new System.Drawing.Size(64, 19);
             this.txtBtnCel2.TabIndex = 17;
-            this.txtBtnCel2.TabStop = true;
             this.txtBtnCel2.Text = "Celular";
             this.txtBtnCel2.UseVisualStyleBackColor = true;
             this.txtBtnCel2.CheckedChanged += new System.EventHandler(this.txtBtnCel2_CheckedChanged);
@@ -191,35 +201,21 @@ namespace ProVantagensApp
             // txtBtnTel2
             // 
             this.txtBtnTel2.AutoSize = true;
-            this.txtBtnTel2.Location = new System.Drawing.Point(269, 316);
+            this.txtBtnTel2.Location = new System.Drawing.Point(278, 317);
             this.txtBtnTel2.Name = "txtBtnTel2";
-            this.txtBtnTel2.Size = new System.Drawing.Size(71, 19);
+            this.txtBtnTel2.Size = new System.Drawing.Size(72, 19);
             this.txtBtnTel2.TabIndex = 16;
-            this.txtBtnTel2.TabStop = true;
             this.txtBtnTel2.Text = "Telefone";
             this.txtBtnTel2.UseVisualStyleBackColor = true;
             this.txtBtnTel2.CheckedChanged += new System.EventHandler(this.txtBtnTel2_CheckedChanged);
             // 
-            // txtBtnCel1
-            // 
-            this.txtBtnCel1.AutoSize = true;
-            this.txtBtnCel1.Location = new System.Drawing.Point(351, 286);
-            this.txtBtnCel1.Name = "txtBtnCel1";
-            this.txtBtnCel1.Size = new System.Drawing.Size(63, 19);
-            this.txtBtnCel1.TabIndex = 14;
-            this.txtBtnCel1.TabStop = true;
-            this.txtBtnCel1.Text = "Celular";
-            this.txtBtnCel1.UseVisualStyleBackColor = true;
-            this.txtBtnCel1.CheckedChanged += new System.EventHandler(this.txtBtnCel1_CheckedChanged);
-            // 
             // txtBtnTel1
             // 
             this.txtBtnTel1.AutoSize = true;
-            this.txtBtnTel1.Location = new System.Drawing.Point(269, 286);
+            this.txtBtnTel1.Location = new System.Drawing.Point(278, 287);
             this.txtBtnTel1.Name = "txtBtnTel1";
-            this.txtBtnTel1.Size = new System.Drawing.Size(71, 19);
+            this.txtBtnTel1.Size = new System.Drawing.Size(72, 19);
             this.txtBtnTel1.TabIndex = 13;
-            this.txtBtnTel1.TabStop = true;
             this.txtBtnTel1.Text = "Telefone";
             this.txtBtnTel1.UseVisualStyleBackColor = true;
             this.txtBtnTel1.CheckedChanged += new System.EventHandler(this.txtBtnTel1_CheckedChanged);
@@ -272,11 +268,18 @@ namespace ProVantagensApp
             this.txtEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtEstadoCivil.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEstadoCivil.FormattingEnabled = true;
+            this.txtEstadoCivil.Items.AddRange(new object[] {
+            "Solteiro(a)",
+            "Casado(a)",
+            "Separado(a)",
+            "Divorciado(a)",
+            "Viúvo(a)"});
             this.txtEstadoCivil.Location = new System.Drawing.Point(112, 166);
             this.txtEstadoCivil.Name = "txtEstadoCivil";
             this.txtEstadoCivil.Size = new System.Drawing.Size(158, 23);
             this.txtEstadoCivil.TabIndex = 9;
             this.txtEstadoCivil.SelectedIndexChanged += new System.EventHandler(this.txtEstadoCivil_SelectedIndexChanged);
+            this.txtEstadoCivil.TextChanged += new System.EventHandler(this.txtEstadoCivil_TextChanged);
             // 
             // txtCPFCNPJ
             // 
@@ -302,7 +305,6 @@ namespace ProVantagensApp
             this.btnPessoaJurídica.Name = "btnPessoaJurídica";
             this.btnPessoaJurídica.Size = new System.Drawing.Size(105, 19);
             this.btnPessoaJurídica.TabIndex = 2;
-            this.btnPessoaJurídica.TabStop = true;
             this.btnPessoaJurídica.Text = "Pessoa jurídica";
             this.btnPessoaJurídica.UseVisualStyleBackColor = true;
             this.btnPessoaJurídica.CheckedChanged += new System.EventHandler(this.btnPessoaJurídica_CheckedChanged);
@@ -334,7 +336,6 @@ namespace ProVantagensApp
             this.btnPessoaFisica.Name = "btnPessoaFisica";
             this.btnPessoaFisica.Size = new System.Drawing.Size(93, 19);
             this.btnPessoaFisica.TabIndex = 1;
-            this.btnPessoaFisica.TabStop = true;
             this.btnPessoaFisica.Text = "Pessoa física";
             this.btnPessoaFisica.UseVisualStyleBackColor = true;
             this.btnPessoaFisica.CheckedChanged += new System.EventHandler(this.btnPessoaFisica_CheckedChanged);
@@ -678,7 +679,7 @@ namespace ProVantagensApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(562, 639);
+            this.ClientSize = new System.Drawing.Size(516, 639);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnBuscaCEP);
             this.Controls.Add(this.txtCEP);
@@ -687,6 +688,8 @@ namespace ProVantagensApp
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cboNvAcesso);
             this.Controls.Add(this.label20);
+            this.MaximumSize = new System.Drawing.Size(532, 1920);
+            this.MinimumSize = new System.Drawing.Size(532, 678);
             this.Name = "frmAddClient";
             this.Text = "Adicionar cliente";
             this.Load += new System.EventHandler(this.frmAddClient_Load);
@@ -723,10 +726,6 @@ namespace ProVantagensApp
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MaskedTextBox txtCEP;
         private System.Windows.Forms.Button btnBuscaCEP;
-        private System.Windows.Forms.RadioButton txtBtnCel2;
-        private System.Windows.Forms.RadioButton txtBtnTel2;
-        private System.Windows.Forms.RadioButton txtBtnCel1;
-        private System.Windows.Forms.RadioButton txtBtnTel1;
         private System.Windows.Forms.MaskedTextBox txtDtn;
         private System.Windows.Forms.MaskedTextBox txtExpedicao;
         private System.Windows.Forms.MaskedTextBox txtOrgaoEmissor;
@@ -757,5 +756,9 @@ namespace ProVantagensApp
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox cboNvAcesso;
+        private System.Windows.Forms.CheckBox txtBtnCel1;
+        private System.Windows.Forms.CheckBox txtBtnCel2;
+        private System.Windows.Forms.CheckBox txtBtnTel2;
+        private System.Windows.Forms.CheckBox txtBtnTel1;
     }
 }

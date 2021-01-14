@@ -27,5 +27,12 @@ namespace ProVantagensApp
             get { return _name; }
             set { _name = value; }
         }
+
+        private static string _token = "";
+        public static string Token
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
     }
 }

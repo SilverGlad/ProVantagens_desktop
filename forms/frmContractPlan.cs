@@ -57,42 +57,21 @@ namespace ProVantagensApp
                 box.Width = 579;
                 box.Height = 199;
                 box.Location = new Point(12, i + 12);
-
-                box.Controls.Add(lbName);
-                lbName.Name = "lbName" + groupNum.ToString();
-                lbName.Text = "Nome do plano:";
-                lbName.Font = new Font("Lucida Sans Unicode", 12, FontStyle.Bold);
-                lbName.Location = new Point(6, 16);
-
-                box.Controls.Add(lbType);
-                lbType.Name = "lbType" + groupNum.ToString();
-                lbType.Text = "Tipo de plano:";
-                lbType.Font = new Font("Lucida Sans Unicode", 12, FontStyle.Bold);
-                lbType.Location = new Point(6, 16);
-
-                box.Controls.Add(lbDescription);
-                lbDescription.Name = "lbDescription" + groupNum.ToString();
-                lbDescription.Text = "Descrição:";
-                lbDescription.Font = new Font("Lucida Sans Unicode", 12, FontStyle.Bold);
-                lbDescription.Location = new Point(54, 80);
-
-                box.Controls.Add(lbValue);
-                lbValue.Name = "lbValue" + groupNum.ToString();
-                lbValue.Text = "Valor do plano:";
-                lbValue.Font = new Font("Lucida Sans Unicode", 12, FontStyle.Bold);
-                lbValue.Location = new Point(344, 16);
+                box.BackColor = Color.Transparent;
 
                 box.Controls.Add(txtName);
                 txtName.Name = "txtName" + groupNum.ToString();
                 txtName.Text = plans.name;
                 txtName.Font = new Font("Lucida Sans Unicode", 12, FontStyle.Regular);
                 txtName.Location = new Point(161, 16);
+                txtName.BackColor = Color.Transparent;
 
                 box.Controls.Add(txtType);
                 txtType.Name = "txtType" + groupNum.ToString();
                 txtType.Text = plans.type;
                 txtType.Font = new Font("Lucida Sans Unicode", 12, FontStyle.Regular);
                 txtType.Location = new Point(161, 51);
+                txtType.BackColor = Color.Transparent;
 
                 box.Controls.Add(txtDescription);
                 txtDescription.Name = "txtDescription" + groupNum.ToString();
@@ -109,6 +88,39 @@ namespace ProVantagensApp
                 txtValue.Text = plans.value;
                 txtValue.Font = new Font("Lucida Sans Unicode", 12, FontStyle.Regular);
                 txtValue.Location = new Point(494, 16);
+                txtValue.BackColor = Color.Transparent;
+
+                box.Controls.Add(lbName);
+                lbName.Name = "lbName" + groupNum.ToString();
+                lbName.Text = "Nome do plano:";
+                lbName.Font = new Font("Lucida Sans Unicode", 10, FontStyle.Bold);
+                lbName.Location = new Point(6, 16);
+                lbName.BackColor = Color.Transparent;
+                lbName.AutoSize = true;
+
+                box.Controls.Add(lbType);
+                lbType.Name = "lbType" + groupNum.ToString();
+                lbType.Text = "Tipo de plano:";
+                lbType.Font = new Font("Lucida Sans Unicode", 10, FontStyle.Bold);
+                lbType.Location = new Point(6, 51);
+                lbType.BackColor = Color.Transparent;
+                lbType.AutoSize = true;
+
+                box.Controls.Add(lbDescription);
+                lbDescription.Name = "lbDescription" + groupNum.ToString();
+                lbDescription.Text = "Descrição:";
+                lbDescription.Font = new Font("Lucida Sans Unicode", 10, FontStyle.Bold);
+                lbDescription.Location = new Point(54, 80);
+                lbDescription.BackColor = Color.Transparent;
+                lbDescription.AutoSize = true;
+
+                box.Controls.Add(lbValue);
+                lbValue.Name = "lbValue" + groupNum.ToString();
+                lbValue.Text = "Valor do plano:";
+                lbValue.Font = new Font("Lucida Sans Unicode", 10, FontStyle.Bold);
+                lbValue.Location = new Point(344, 16);
+                lbValue.BackColor = Color.Transparent;
+                lbValue.AutoSize = true;
 
                 box.Controls.Add(buttonNext);
                 buttonNext.Name = plansSnapshot.Id;
@@ -131,7 +143,7 @@ namespace ProVantagensApp
 
         }
 
-        private async void savePlan(string planName, string planValue)
+        private async void savePlan(string planName, string planValue, string planID)
         {
 
             string path = AppDomain.CurrentDomain.BaseDirectory + @"pro-vantagens-firebase-adminsdk-5cf5q-82ec44750b.json";
@@ -148,8 +160,8 @@ namespace ProVantagensApp
 
             await documentReference.UpdateAsync(data);
             this.Close();
-            frmFinalizeClient frm = new frmFinalizeClient();
-            frm.Show();
+            frmFinalizeClient frm = new frmFinalizeClient(userID, planID);
+            frm.ShowDialog();
 
         }
 
@@ -158,7 +170,7 @@ namespace ProVantagensApp
             Button button = (Button)sender;
             try
             {
-                savePlan(planName, planValue);
+                savePlan(planName, planValue, planID);
             }
             catch
             {

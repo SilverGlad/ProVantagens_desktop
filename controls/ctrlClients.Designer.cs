@@ -179,6 +179,7 @@ namespace ProVantagensApp
             this.btnShowAll.TabIndex = 2;
             this.btnShowAll.Text = "Mostrar todos";
             this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // btnSearch
             // 
@@ -245,6 +246,7 @@ namespace ProVantagensApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.pnTop);

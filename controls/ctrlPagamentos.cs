@@ -229,8 +229,6 @@ namespace ProVantagensApp
             }
             else
             {
-                frmContractPlan frm = new frmContractPlan();
-                frm.ShowDialog();
                 try
                 {
                     await loadInvoicesAsync();

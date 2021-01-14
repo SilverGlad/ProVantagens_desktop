@@ -29,7 +29,10 @@ namespace ProVantagensApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGeral));
             this.gbLogo = new System.Windows.Forms.GroupBox();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.lbUserName = new System.Windows.Forms.Label();
             this.pnSpace = new System.Windows.Forms.Panel();
             this.btnPlans = new System.Windows.Forms.Button();
@@ -46,15 +49,15 @@ namespace ProVantagensApp
             this.btnDashboard = new System.Windows.Forms.Button();
             this.gbMenu = new System.Windows.Forms.GroupBox();
             this.gbLogin = new System.Windows.Forms.GroupBox();
+            this.btnMudarSenha = new System.Windows.Forms.Button();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.pnPage = new System.Windows.Forms.Panel();
-            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.gbLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.gbFinances.SuspendLayout();
             this.gbMenu.SuspendLayout();
             this.gbLogin.SuspendLayout();
             this.pnMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // gbLogo
@@ -63,9 +66,29 @@ namespace ProVantagensApp
             this.gbLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbLogo.Location = new System.Drawing.Point(0, 0);
             this.gbLogo.Name = "gbLogo";
-            this.gbLogo.Size = new System.Drawing.Size(200, 127);
+            this.gbLogo.Size = new System.Drawing.Size(200, 126);
             this.gbLogo.TabIndex = 0;
             this.gbLogo.TabStop = false;
+            // 
+            // imgLogo
+            // 
+            this.imgLogo.Image = global::ProVantagensApp.Properties.Resources.Logo_Branco_Azul;
+            this.imgLogo.Location = new System.Drawing.Point(6, 12);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(188, 109);
+            this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLogo.TabIndex = 0;
+            this.imgLogo.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(79, 128);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 52);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbUserName
             // 
@@ -139,6 +162,7 @@ namespace ProVantagensApp
             // 
             // btnSair
             // 
+            this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(129, 71);
@@ -203,11 +227,12 @@ namespace ProVantagensApp
             this.gbFinances.Controls.Add(this.btnFaturas);
             this.gbFinances.Controls.Add(this.btnDashboard);
             this.gbFinances.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbFinances.Location = new System.Drawing.Point(0, 451);
+            this.gbFinances.Location = new System.Drawing.Point(0, 450);
             this.gbFinances.Name = "gbFinances";
             this.gbFinances.Size = new System.Drawing.Size(200, 194);
             this.gbFinances.TabIndex = 3;
             this.gbFinances.TabStop = false;
+            this.gbFinances.Visible = false;
             // 
             // btnRelatorios
             // 
@@ -283,6 +308,7 @@ namespace ProVantagensApp
             // 
             this.gbMenu.AutoSize = true;
             this.gbMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(190)))), ((int)(((byte)(90)))));
+            this.gbMenu.Controls.Add(this.button1);
             this.gbMenu.Controls.Add(this.pnSpace);
             this.gbMenu.Controls.Add(this.btnPlans);
             this.gbMenu.Controls.Add(this.btnClients);
@@ -290,7 +316,7 @@ namespace ProVantagensApp
             this.gbMenu.Controls.Add(this.btnPartners);
             this.gbMenu.Controls.Add(this.btnHome);
             this.gbMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbMenu.Location = new System.Drawing.Point(0, 227);
+            this.gbMenu.Location = new System.Drawing.Point(0, 226);
             this.gbMenu.Name = "gbMenu";
             this.gbMenu.Size = new System.Drawing.Size(200, 224);
             this.gbMenu.TabIndex = 2;
@@ -298,15 +324,29 @@ namespace ProVantagensApp
             // 
             // gbLogin
             // 
+            this.gbLogin.Controls.Add(this.btnMudarSenha);
             this.gbLogin.Controls.Add(this.btnSair);
             this.gbLogin.Controls.Add(this.lbWelcome);
             this.gbLogin.Controls.Add(this.lbUserName);
             this.gbLogin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbLogin.Location = new System.Drawing.Point(0, 127);
+            this.gbLogin.Location = new System.Drawing.Point(0, 126);
             this.gbLogin.Name = "gbLogin";
             this.gbLogin.Size = new System.Drawing.Size(200, 100);
             this.gbLogin.TabIndex = 1;
             this.gbLogin.TabStop = false;
+            // 
+            // btnMudarSenha
+            // 
+            this.btnMudarSenha.FlatAppearance.BorderSize = 0;
+            this.btnMudarSenha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMudarSenha.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
+            this.btnMudarSenha.Location = new System.Drawing.Point(3, 71);
+            this.btnMudarSenha.Name = "btnMudarSenha";
+            this.btnMudarSenha.Size = new System.Drawing.Size(88, 23);
+            this.btnMudarSenha.TabIndex = 3;
+            this.btnMudarSenha.Text = "Mudar senha";
+            this.btnMudarSenha.UseVisualStyleBackColor = true;
+            this.btnMudarSenha.Click += new System.EventHandler(this.btnMudarSenha_Click);
             // 
             // pnMenu
             // 
@@ -329,16 +369,6 @@ namespace ProVantagensApp
             this.pnPage.Size = new System.Drawing.Size(682, 645);
             this.pnPage.TabIndex = 4;
             // 
-            // imgLogo
-            // 
-            this.imgLogo.Image = global::ProVantagensApp.Properties.Resources.Logo_Branco_Azul;
-            this.imgLogo.Location = new System.Drawing.Point(6, 12);
-            this.imgLogo.Name = "imgLogo";
-            this.imgLogo.Size = new System.Drawing.Size(188, 109);
-            this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgLogo.TabIndex = 0;
-            this.imgLogo.TabStop = false;
-            // 
             // FrmGeral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,12 +377,14 @@ namespace ProVantagensApp
             this.Controls.Add(this.pnPage);
             this.Controls.Add(this.pnMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmGeral";
             this.Text = "Pró Vantagens";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmGeral_FormClosed);
             this.Load += new System.EventHandler(this.FrmGeral_Load);
             this.gbLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.gbFinances.ResumeLayout(false);
             this.gbMenu.ResumeLayout(false);
             this.gbMenu.PerformLayout();
@@ -360,14 +392,12 @@ namespace ProVantagensApp
             this.gbLogin.PerformLayout();
             this.pnMenu.ResumeLayout(false);
             this.pnMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.GroupBox gbLogo;
-        private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.Panel pnSpace;
         private System.Windows.Forms.Button btnPlans;
@@ -386,5 +416,8 @@ namespace ProVantagensApp
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnRelatorios;
         private System.Windows.Forms.Button btnPagamentos;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMudarSenha;
+        private System.Windows.Forms.PictureBox imgLogo;
     }
 }
